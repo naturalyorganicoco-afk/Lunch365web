@@ -1,0 +1,1483 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Santa Elena Lunch365 — Menús caseros todos los días</title>
+<meta name="description" content="Menús caseros y económicos, martes a sábado. Recoge en el punto o pide a domicilio. Reserva tu plan en segundos.">
+<meta name="theme-color" content="#06100A">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap');
+
+  :root {
+    --dark:      #06100A;
+    --dark-2:    #0D1B12;
+    --dark-3:    #16291B;
+    --dark-4:    #1F3524;
+    --gold:      #C9A227;
+    --gold-light:#E8C34A;
+    --gold-dark: #8B6B23;
+    --cream:     #F3EDE0;
+    --fog:       #A69B85;
+    --danger:    #E06B5C;
+    --shadow:    0 8px 28px rgba(0,0,0,0.45);
+    --shadow-lg: 0 20px 60px rgba(0,0,0,0.55);
+    --glow:      0 0 60px rgba(201,162,39,0.18);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--dark);
+    font-family: 'Inter', sans-serif;
+    color: var(--cream);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, .brand { font-family: 'Playfair Display', serif; }
+
+  a { color: inherit; text-decoration: none; }
+  button { font-family: inherit; cursor: pointer; }
+  img { max-width: 100%; display: block; }
+
+  .container { max-width: 1120px; margin: 0 auto; padding: 0 1.5rem; }
+  section { padding: 5rem 0; }
+  @media (max-width: 680px) { section { padding: 3.25rem 0; } }
+
+  /* ── NAV ── */
+  .nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(6,16,10,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(201,162,39,0.18);
+  }
+  .nav-inner {
+    max-width: 1120px; margin: 0 auto; padding: 0.75rem 1.5rem;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-brand { display: flex; align-items: center; gap: 0.65rem; }
+  .nav-brand img { width: 42px; height: auto; }
+  .nav-brand span { font-weight: 700; font-size: 1.1rem; color: var(--gold-light); font-family: 'Playfair Display', serif; }
+  .nav-brand small { display: block; font-size: 0.6rem; color: var(--fog); font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; }
+  .nav-links { display: flex; gap: 1.9rem; font-size: 0.84rem; font-weight: 500; }
+  .nav-links a { color: var(--fog); transition: color .2s; }
+  .nav-links a:hover { color: var(--gold-light); }
+  .nav-cta {
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark)); color: var(--dark); padding: 0.55rem 1.2rem;
+    border-radius: 999px; font-size: 0.82rem; font-weight: 700; border: none;
+    transition: transform .15s, box-shadow .15s;
+  }
+  .nav-cta:hover { transform: translateY(-1px); box-shadow: var(--glow); }
+  @media (max-width: 780px) { .nav-links { display: none; } }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative; overflow: hidden;
+    padding: 6.5rem 0 6rem;
+    min-height: 640px; display: flex; align-items: center;
+  }
+  .hero-bg {
+    position: absolute; inset: 0; z-index: 0;
+    background-image: url('menu-15-bandeja-paisa.jpg');
+    background-size: cover; background-position: 62% center;
+  }
+  .hero-bg-overlay {
+    position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(100deg, rgba(6,16,10,0.97) 0%, rgba(6,16,10,0.92) 30%, rgba(6,16,10,0.55) 55%, rgba(6,16,10,0.18) 78%, rgba(6,16,10,0.05) 100%);
+  }
+  @media (max-width: 900px) {
+    .hero-bg-overlay { background: linear-gradient(180deg, rgba(6,16,10,0.65) 0%, rgba(6,16,10,0.88) 55%, rgba(6,16,10,0.98) 80%); }
+    .hero-bg { background-position: 68% center; }
+  }
+  .hero-inner {
+    position: relative; z-index: 2;
+    max-width: 1120px; margin: 0 auto; padding: 0 1.5rem;
+  }
+  .hero-text { max-width: 560px; }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    background: rgba(201,162,39,0.1); border: 1px solid rgba(201,162,39,0.35); border-radius: 999px;
+    padding: 0.4rem 1rem; font-size: 0.72rem; font-weight: 600; color: var(--gold-light);
+    margin-bottom: 1.6rem; animation: fadeUp .6s ease both;
+  }
+  .hero h1 {
+    font-size: clamp(2.2rem, 4.6vw, 3.5rem); font-weight: 700; line-height: 1.14;
+    color: var(--cream); margin-bottom: 1.2rem;
+    animation: fadeUp .7s .05s ease both;
+  }
+  .hero h1 span { color: var(--gold-light); font-style: italic; }
+  .hero p.lead {
+    font-size: 1.05rem; color: var(--fog); max-width: 500px; margin: 0 0 2rem;
+    animation: fadeUp .7s .1s ease both;
+  }
+  @media (max-width: 900px) { .hero p.lead { margin: 0 auto 2rem; } }
+  .hero-ctas { display: flex; gap: 0.9rem; flex-wrap: wrap; animation: fadeUp .7s .15s ease both; }
+  @media (max-width: 900px) { .hero-ctas { justify-content: center; } }
+  .btn-primary, .btn-secondary {
+    padding: 0.85rem 1.7rem; border-radius: 999px; font-weight: 700; font-size: 0.92rem;
+    border: none; transition: transform .15s, box-shadow .15s, background .15s;
+  }
+  .btn-primary { background: linear-gradient(135deg, var(--gold), var(--gold-dark)); color: var(--dark); }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: var(--glow); }
+  .btn-secondary { background: transparent; color: var(--gold-light); border: 1.5px solid var(--gold-dark); }
+  .btn-secondary:hover { background: rgba(201,162,39,0.1); border-color: var(--gold); }
+
+  .hero-stats {
+    display: flex; gap: 2.5rem; margin-top: 3rem; flex-wrap: wrap;
+    animation: fadeUp .7s .2s ease both;
+  }
+  @media (max-width: 900px) { .hero-stats { justify-content: center; } }
+  .hero-stat { text-align: center; }
+  .hero-stat b { font-size: 1.6rem; color: var(--gold-light); display: block; font-family: 'Playfair Display', serif; }
+  .hero-stat span { font-size: 0.7rem; color: var(--fog); text-transform: uppercase; letter-spacing: 0.07em; }
+
+  .hero-credit {
+    position: absolute; right: 1.75rem; bottom: 1.5rem; z-index: 2;
+    background: rgba(6,16,10,0.7); backdrop-filter: blur(6px);
+    border: 1px solid rgba(201,162,39,0.3); border-radius: 14px; padding: 0.65rem 1.1rem;
+    text-align: right; animation: fadeIn 1s .3s ease both;
+  }
+  .hero-credit b { color: var(--gold-light); font-size: 0.85rem; display: block; }
+  .hero-credit span { color: var(--fog); font-size: 0.7rem; }
+  @media (max-width: 900px) { .hero-credit { display: none; } }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+  /* ── SECTION HEADERS ── */
+  .section-head { text-align: center; max-width: 640px; margin: 0 auto 3rem; }
+  .eyebrow {
+    font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 0.7rem;
+  }
+  .section-head h2 { font-size: clamp(1.7rem, 3.2vw, 2.3rem); font-weight: 700; color: var(--cream); margin-bottom: 0.7rem; }
+  .section-head p { color: var(--fog); font-size: 0.95rem; }
+
+  /* ── FEATURE CARDS ── */
+  .features { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
+  @media (max-width: 900px) { .features { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 520px) { .features { grid-template-columns: 1fr; } }
+  .feature-card {
+    background: var(--dark-2); border: 1px solid rgba(201,162,39,0.14); border-radius: 18px;
+    padding: 1.7rem 1.4rem; transition: transform .2s, box-shadow .2s, border-color .2s;
+  }
+  .feature-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: rgba(201,162,39,0.35); }
+  .feature-icon {
+    width: 46px; height: 46px; border-radius: 12px; display: flex; align-items: center;
+    justify-content: center; font-size: 1.35rem; margin-bottom: 1rem;
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark)); color: var(--dark);
+  }
+  .feature-card h3 { font-size: 1.05rem; margin-bottom: 0.45rem; color: var(--cream); }
+  .feature-card p { font-size: 0.85rem; color: var(--fog); }
+
+  /* ── MENU SECTION ── */
+  .menu-section {
+    background: var(--dark-2); border: 1px solid rgba(201,162,39,0.14); border-radius: 28px;
+    margin: 0 1.5rem; padding: 3rem clamp(1.2rem,4vw,3rem);
+  }
+  @media (min-width: 1120px) { .menu-section { margin: 0 auto; } }
+  .day-tabs { display: flex; gap: 0.5rem; overflow-x: auto; padding-bottom: 0.5rem; margin-bottom: 2rem; scrollbar-width: thin; }
+  .day-tab {
+    flex-shrink: 0; background: var(--dark-3); border: 1.5px solid transparent; border-radius: 14px;
+    padding: 0.75rem 1.1rem; min-width: 108px; text-align: center; transition: all .18s;
+  }
+  .day-tab .dt-name { font-weight: 700; font-size: 0.88rem; color: var(--cream); display: block; }
+  .day-tab .dt-date { font-size: 0.68rem; color: var(--fog); display: block; margin-top: 0.1rem; }
+  .day-tab .dt-cupos { font-size: 0.65rem; font-weight: 600; margin-top: 0.4rem; display: block; color: var(--fog); }
+  .day-tab.active { background: linear-gradient(135deg, var(--gold), var(--gold-dark)); border-color: var(--gold); }
+  .day-tab.active .dt-name, .day-tab.active .dt-date { color: var(--dark); }
+  .day-tab.active .dt-cupos { color: #3a2e0d; }
+  .day-tab.agotado { opacity: 0.6; }
+  .day-tab.agotado .dt-cupos { color: var(--danger); }
+  .day-tab:not(.agotado):not(.active):hover { border-color: var(--gold-dark); }
+  .day-tab.cerrado { opacity: 0.4; }
+
+  .sold-out-stamp {
+    display: inline-block; color: var(--danger); border: 2px solid var(--danger); border-radius: 4px;
+    padding: 0.02rem 0.4rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase;
+    transform: rotate(-4deg); font-size: 0.62rem;
+  }
+  .cupo-bar-label .sold-out-stamp { font-size: 0.78rem; padding: 0.1rem 0.6rem; }
+
+  .menu-day-panel { display: none; }
+  .menu-day-panel.active { display: block; animation: fadeIn .35s ease both; }
+
+  .cupo-bar-wrap { margin-bottom: 1.75rem; }
+  .cupo-bar-label { display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--fog); margin-bottom: 0.4rem; }
+  .cupo-bar-label b { color: var(--gold-light); font-weight: 700; }
+  .cupo-bar { height: 8px; background: var(--dark-3); border-radius: 99px; overflow: hidden; }
+  .cupo-bar-fill { height: 100%; background: linear-gradient(90deg, var(--gold-dark), var(--gold)); border-radius: 99px; transition: width .5s ease; }
+  .cupo-bar-fill.low { background: linear-gradient(90deg, var(--danger), #a83c3c); }
+
+  .menu-items { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px,1fr)); gap: 1.1rem; }
+  .menu-item {
+    border: 1.5px solid rgba(201,162,39,0.16); border-radius: 18px; overflow: hidden; cursor: pointer;
+    background: var(--dark-3); transition: border-color .15s, transform .15s, box-shadow .15s;
+    display: flex; flex-direction: column;
+  }
+  .menu-item:hover { border-color: var(--gold-dark); transform: translateY(-3px); box-shadow: var(--shadow); }
+  .menu-item.selected { border-color: var(--gold); box-shadow: var(--glow); }
+  .mi-photo { width: 100%; aspect-ratio: 4/3; overflow: hidden; background: var(--dark-4); }
+  .mi-photo img { width: 100%; height: 100%; object-fit: cover; }
+  .mi-photo-placeholder { display: flex; align-items: center; justify-content: center; font-size: 2.1rem; opacity: 0.55; }
+  .mi-body { padding: 0.95rem 1.05rem 1.1rem; }
+  .menu-item .mi-region { font-size: 0.64rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--gold); }
+  .menu-item h4 { font-size: 1rem; margin: 0.3rem 0 0.35rem; color: var(--cream); font-weight: 600; }
+  .menu-item .mi-gramaje { font-size: 0.76rem; color: var(--fog); }
+  .menu-empty { color: var(--fog); font-size: 0.88rem; padding: 1.5rem 0; text-align: center; }
+
+  /* ── CARRITO: cantidad por menú ── */
+  .menu-item.wizard-item { cursor: default; }
+  .menu-item.wizard-item.has-qty { border-color: var(--gold); box-shadow: var(--glow); }
+  .qty-stepper { display: flex; align-items: center; gap: 0.7rem; margin-top: 0.7rem; }
+  .qty-btn {
+    width: 30px; height: 30px; border-radius: 8px; border: 1.5px solid rgba(201,162,39,0.3);
+    background: var(--dark-4); color: var(--gold-light); font-size: 1.05rem; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; transition: all .15s; line-height: 1;
+  }
+  .qty-btn:hover { border-color: var(--gold); background: rgba(201,162,39,0.15); }
+  .qty-btn:disabled { opacity: 0.35; cursor: not-allowed; }
+  .qty-value { font-size: 1rem; font-weight: 700; color: var(--cream); min-width: 1.6rem; text-align: center; font-family: 'Playfair Display', serif; }
+
+  .carrito-resumen {
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;
+    background: var(--dark-3); border: 1px solid rgba(201,162,39,0.2); border-radius: 14px;
+    padding: 0.85rem 1.1rem; margin: 1.2rem 0;
+  }
+  .carrito-resumen .cr-items { font-size: 0.85rem; color: var(--fog); }
+  .carrito-resumen .cr-items b { color: var(--gold-light); }
+  .carrito-resumen .cr-total { font-size: 1.15rem; font-weight: 700; color: var(--gold-light); font-family: 'Playfair Display', serif; }
+
+  /* ── PLAN SELECTOR ── */
+  .plan-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 2.5rem; }
+  @media (max-width: 780px) { .plan-grid { grid-template-columns: repeat(2, 1fr); } }
+  .plan-card {
+    background: var(--dark-3); border: 2px solid rgba(201,162,39,0.14); border-radius: 16px; padding: 1.3rem 1.1rem;
+    text-align: center; position: relative; transition: all .18s;
+  }
+  .plan-card.active { border-color: var(--gold); box-shadow: var(--glow); }
+  .plan-card:not(.disabled):hover { border-color: var(--gold-dark); }
+  .plan-card.disabled { opacity: 0.55; cursor: not-allowed; }
+  .plan-card h4 { font-size: 0.95rem; margin-bottom: 0.25rem; color: var(--cream); }
+  .plan-card p { font-size: 0.72rem; color: var(--fog); }
+  .plan-soon {
+    position: absolute; top: -9px; right: 10px; background: linear-gradient(135deg, var(--gold), var(--gold-dark)); color: var(--dark);
+    font-size: 0.58rem; font-weight: 700; padding: 0.18rem 0.5rem; border-radius: 999px; letter-spacing: .04em;
+  }
+
+  /* ── RESERVATION WIZARD ── */
+  .wizard {
+    background: var(--dark-2); border: 1px solid rgba(201,162,39,0.14); border-radius: 24px;
+    box-shadow: var(--shadow); padding: clamp(1.5rem,4vw,2.5rem);
+  }
+  .wizard-steps { display: flex; gap: 0.5rem; margin-bottom: 2rem; }
+  .wizard-step-dot {
+    flex: 1; height: 4px; border-radius: 99px; background: var(--dark-3); transition: background .3s;
+  }
+  .wizard-step-dot.done { background: linear-gradient(90deg, var(--gold-dark), var(--gold)); }
+  .wizard-panel h3 { color: var(--cream); font-family: 'Playfair Display', serif; }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+  @media (max-width: 560px) { .form-row { grid-template-columns: 1fr; } }
+  .field label { display: block; font-size: 0.78rem; font-weight: 600; color: var(--cream); margin-bottom: 0.35rem; }
+  .field input, .field textarea {
+    width: 100%; border: 1.5px solid rgba(201,162,39,0.2); border-radius: 10px; padding: 0.7rem 0.85rem;
+    font-family: inherit; font-size: 0.9rem; background: var(--dark-3); color: var(--cream);
+    transition: border-color .15s;
+  }
+  .field input::placeholder, .field textarea::placeholder { color: var(--fog); }
+  .field input:focus, .field textarea:focus { outline: none; border-color: var(--gold); }
+
+  .toggle-group { display: flex; gap: 0.6rem; margin-bottom: 1rem; }
+  .toggle-opt {
+    flex: 1; border: 1.5px solid rgba(201,162,39,0.18); border-radius: 12px; padding: 0.85rem; text-align: center;
+    transition: all .15s; background: var(--dark-3);
+  }
+  .toggle-opt.active { border-color: var(--gold); background: rgba(201,162,39,0.1); }
+  .toggle-opt b { display: block; font-size: 0.9rem; color: var(--cream); }
+  .toggle-opt span { font-size: 0.75rem; color: var(--fog); }
+  .toggle-opt.disabled { opacity: 0.5; cursor: not-allowed; }
+  .toggle-opt.disabled span { color: var(--gold); font-weight: 600; }
+
+  .horarios-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(76px,1fr)); gap: 0.5rem;
+    max-height: 220px; overflow-y: auto; padding: 0.2rem;
+  }
+  .horario-slot {
+    border: 1.5px solid rgba(201,162,39,0.18); border-radius: 10px; padding: 0.55rem 0.3rem;
+    text-align: center; font-size: 0.8rem; font-weight: 600; color: var(--cream);
+    background: var(--dark-3); transition: all .15s;
+  }
+  .horario-slot:not(.ocupado):hover { border-color: var(--gold-dark); }
+  .horario-slot.selected { border-color: var(--gold); background: rgba(201,162,39,0.15); color: var(--gold-light); }
+  .horario-slot.ocupado { opacity: 0.35; text-decoration: line-through; cursor: not-allowed; }
+
+  .price-summary {
+    background: var(--dark-3); border: 1px solid rgba(201,162,39,0.2); border-radius: 14px; padding: 1.1rem 1.3rem; margin: 1.2rem 0;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .price-summary .ps-label { font-size: 0.82rem; color: var(--fog); }
+  .price-summary .ps-value { font-size: 1.35rem; font-weight: 700; color: var(--gold-light); font-family: 'Playfair Display', serif; }
+
+  .wizard-nav { display: flex; justify-content: space-between; margin-top: 1.5rem; gap: 0.75rem; }
+  .btn-ghost { background: transparent; border: none; color: var(--fog); font-weight: 600; font-size: 0.88rem; padding: 0.7rem 1rem; }
+  .btn-ghost:hover { color: var(--cream); }
+
+  .alert { border-radius: 12px; padding: 0.85rem 1.1rem; font-size: 0.85rem; margin-bottom: 1.2rem; display: none; }
+  .alert.show { display: block; animation: fadeIn .25s ease both; }
+  .alert-error { background: rgba(224,107,92,0.12); color: var(--danger); border: 1px solid rgba(224,107,92,0.35); }
+  .alert-info { background: rgba(201,162,39,0.1); color: var(--gold-light); border: 1px solid rgba(201,162,39,0.3); }
+
+  .confirm-box { text-align: center; padding: 1rem 0; }
+  .confirm-icon {
+    width: 64px; height: 64px; border-radius: 50%; background: linear-gradient(135deg, var(--gold), var(--gold-dark)); color: var(--dark);
+    display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin: 0 auto 1.2rem;
+  }
+  .confirm-box h3 { color: var(--cream); }
+  .confirm-details {
+    background: var(--dark-3); border: 1px solid rgba(201,162,39,0.16); border-radius: 14px; padding: 1.2rem 1.4rem; text-align: left;
+    margin: 1.5rem auto; max-width: 400px; font-size: 0.88rem;
+  }
+  .confirm-details div { display: flex; justify-content: space-between; padding: 0.35rem 0; border-bottom: 1px solid rgba(201,162,39,0.12); }
+  .confirm-details div:last-child { border-bottom: none; }
+  .confirm-details span:first-child { color: var(--fog); }
+  .confirm-details span:last-child { font-weight: 600; color: var(--cream); text-align: right; }
+
+  /* ── PUNTO DE RECOGIDA ── */
+  .punto-card {
+    background: var(--dark-2); border: 1px solid rgba(201,162,39,0.14); border-radius: 24px; box-shadow: var(--shadow);
+    display: grid; grid-template-columns: 1fr 1.2fr; overflow: hidden;
+  }
+  @media (max-width: 780px) { .punto-card { grid-template-columns: 1fr; } }
+  .punto-foto {
+    background: var(--dark-3); display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 0.5rem; color: var(--fog); font-size: 0.85rem; min-height: 220px; padding: 1.5rem;
+    text-align: center;
+  }
+  .punto-foto .pf-icon { font-size: 2rem; }
+  .punto-info { padding: 2rem clamp(1.2rem,4vw,2.2rem); display: flex; flex-direction: column; justify-content: center; gap: 1rem; }
+  .punto-info h3 { font-size: 1.2rem; color: var(--cream); }
+  .punto-schedule {
+    display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(201,162,39,0.1); border: 1px solid rgba(201,162,39,0.25); border-radius: 999px;
+    padding: 0.5rem 1rem; font-size: 0.85rem; font-weight: 600; color: var(--gold-light); width: fit-content;
+  }
+  .punto-info p { font-size: 0.88rem; color: var(--fog); }
+  .btn-maps {
+    display: inline-flex; align-items: center; gap: 0.5rem; width: fit-content;
+    padding: 0.75rem 1.3rem; border-radius: 999px; font-weight: 700; font-size: 0.88rem;
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark)); color: var(--dark); border: none; transition: all .15s;
+  }
+  .btn-maps:hover { transform: translateY(-2px); box-shadow: var(--glow); }
+  .btn-maps.soon { background: var(--dark-3); color: var(--fog); cursor: not-allowed; }
+  .btn-maps.soon:hover { transform: none; box-shadow: none; }
+
+  /* ── FOOTER ── */
+  footer { background: #030A05; color: var(--cream); padding: 3.5rem 0 1.5rem; margin-top: 4rem; border-top: 1px solid rgba(201,162,39,0.14); }
+  .footer-grid { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 2rem; margin-bottom: 2rem; }
+  @media (max-width: 700px) { .footer-grid { grid-template-columns: 1fr; } }
+  footer h4 { font-size: 0.9rem; margin-bottom: 0.8rem; color: var(--gold-light); font-family: 'Playfair Display', serif; }
+  footer p, footer li { font-size: 0.82rem; color: var(--fog); line-height: 1.8; }
+  footer a:hover { color: var(--gold-light); }
+  footer ul { list-style: none; }
+  .footer-bottom { border-top: 1px solid rgba(201,162,39,0.12); padding-top: 1.2rem; text-align: center; font-size: 0.72rem; color: var(--fog); }
+  .placeholder-note { color: var(--gold-dark); font-style: italic; }
+
+  .install-banner {
+    position: fixed; bottom: 1rem; left: 50%; transform: translate(-50%, 120%); z-index: 60;
+    background: var(--dark-2); border: 1px solid rgba(201,162,39,0.3); color: var(--cream); border-radius: 14px; padding: 0.9rem 1.2rem;
+    display: flex; align-items: center; gap: 0.9rem; box-shadow: var(--shadow-lg);
+    transition: transform .35s ease; max-width: 92vw;
+  }
+  .install-banner.show { transform: translate(-50%, 0); }
+  .install-banner span { font-size: 0.82rem; }
+  .install-banner button { background: linear-gradient(135deg, var(--gold), var(--gold-dark)); color: var(--dark); border: none; border-radius: 999px; padding: 0.5rem 0.9rem; font-size: 0.8rem; font-weight: 700; white-space: nowrap; }
+  .install-close { background: transparent !important; color: var(--fog) !important; padding: 0.5rem !important; }
+
+  /* ── WHATSAPP FLOTANTE ── */
+  .whatsapp-float {
+    position: fixed; right: 1.1rem; bottom: 1.1rem; z-index: 61;
+    width: 56px; height: 56px; border-radius: 50%; background: #25D366; color: #fff;
+    display: flex; align-items: center; justify-content: center; font-size: 1.7rem;
+    box-shadow: var(--shadow-lg); transition: transform .2s;
+  }
+  .whatsapp-float:hover { transform: scale(1.08); }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-brand">
+      <img src="logo-lunch365.png" alt="Santa Elena Lunch365">
+      <div>
+        <span>Lunch365</span>
+        <small>By Santa Elena</small>
+      </div>
+    </div>
+    <div class="nav-links">
+      <a href="#menu">Menú de la semana</a>
+      <a href="#nosotros">Cómo funciona</a>
+      <a href="#punto">Punto de recogida</a>
+      <a href="#reservar">Reservar</a>
+    </div>
+    <a href="#reservar" class="nav-cta">Reservar ahora</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-bg-overlay"></div>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <h1>Menú casero,<br><span>listo cuando tú lo necesitas.</span></h1>
+      <p class="lead">Menús típicos colombianos, económicos y hechos con cariño. Recoge en nuestro punto o pide a domicilio — reserva tu día o tu plan completo en menos de un minuto.</p>
+      <div class="hero-ctas">
+        <a href="#reservar" class="btn-primary">Reservar mi menú</a>
+        <a href="#menu" class="btn-secondary">Ver el menú de la semana</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><b>Muy pronto</b><span>Recogida en punto</span></div>
+        <div class="hero-stat"><b>$6.000</b><span>Con domicilio</span></div>
+        <div class="hero-stat"><b id="stat-menus">21</b><span>Menús regionales</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-credit">
+    <b>Bandeja Paisa</b>
+    <span>Uno de los 21 menús — Antioquia</span>
+  </div>
+</section>
+
+<section id="nosotros">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Cómo funciona</div>
+      <h2>Simple, económico y sin sorpresas</h2>
+      <p>Pensado para quien madruga a trabajar y no tiene tiempo — ni ganas de pagar de más — por un buen menú casero.</p>
+    </div>
+    <div class="features">
+      <div class="feature-card">
+        <div class="feature-icon">💰</div>
+        <h3>Precio fijo</h3>
+        <p>$6.000 con domicilio incluido. Sin letra pequeña. Recogida en el punto muy pronto.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🗓️</div>
+        <h3>Planes flexibles</h3>
+        <p>Reserva un solo día, la semana completa, quincena o el mes — tú decides el compromiso.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🌎</div>
+        <h3>Sabores regionales</h3>
+        <p>21 menús inspirados en distintas regiones de Colombia, rotando entre semana y comida rápida el sábado.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🛵</div>
+        <h3>Recoge o pide a domicilio</h3>
+        <p>Recógelo en nuestro punto fijo o recíbelo donde estés, sin salir de casa ni del trabajo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="punto">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Punto de recogida</div>
+      <h2>¿Dónde recoges tu pedido?</h2>
+      <p>Estamos montando nuestro punto físico — muy pronto verás aquí la foto y la ubicación exacta.</p>
+    </div>
+    <div class="punto-card">
+      <div class="punto-foto" id="puntoFoto">
+        <span class="pf-icon">📍</span>
+        <span>Foto del punto — muy pronto</span>
+      </div>
+      <div class="punto-info">
+        <h3>Punto de recogida Santa Elena Lunch365</h3>
+        <div class="punto-schedule">🕕 Martes a sábado · 8:00 a.m. – 12:00 m.</div>
+        <p>Estamos instalando el punto de recogida. Cuando esté listo, aquí verás la foto del lugar y un botón para que Google Maps te indique la ruta exacta para llegar.</p>
+        <button class="btn-maps soon" id="btnComoLlegar" disabled>📍 Cómo llegar — muy pronto</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="menu">
+  <div class="menu-section">
+    <div class="section-head">
+      <div class="eyebrow">Menú en vivo</div>
+      <h2>¿Qué hay en el menú?</h2>
+      <p>Cupos limitados por día — se actualizan en tiempo real a medida que se van reservando.</p>
+    </div>
+    <div class="day-tabs" id="dayTabs"></div>
+    <div id="dayPanels"></div>
+  </div>
+</section>
+
+<section id="reservar">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Reserva</div>
+      <h2>Programa tu menú</h2>
+      <p>Elige tu plan, tu día y cómo lo quieres recibir.</p>
+    </div>
+
+    <div class="plan-grid" id="planGrid">
+      <div class="plan-card active" data-plan="dia">
+        <h4>Día suelto</h4>
+        <p>Reserva un solo menú</p>
+      </div>
+      <div class="plan-card disabled" data-plan="semana">
+        <span class="plan-soon">Muy pronto</span>
+        <h4>Semana</h4>
+        <p>Pago en línea</p>
+      </div>
+      <div class="plan-card disabled" data-plan="quincena">
+        <span class="plan-soon">Muy pronto</span>
+        <h4>Quincena</h4>
+        <p>Pago en línea</p>
+      </div>
+      <div class="plan-card disabled" data-plan="mes">
+        <span class="plan-soon">Muy pronto</span>
+        <h4>Mes completo</h4>
+        <p>Pago en línea</p>
+      </div>
+    </div>
+
+    <div class="wizard">
+      <div class="wizard-steps">
+        <div class="wizard-step-dot done" data-step="1"></div>
+        <div class="wizard-step-dot" data-step="2"></div>
+        <div class="wizard-step-dot" data-step="3"></div>
+        <div class="wizard-step-dot" data-step="4"></div>
+      </div>
+
+      <div class="alert alert-error" id="alertError"></div>
+      <div class="alert alert-info" id="alertInfo"></div>
+
+      <!-- Paso 1: elegir día y menú -->
+      <div class="wizard-panel" id="panelPaso1">
+        <h3 style="margin-bottom:1rem;font-size:1.15rem;">1. Elige el día y cuántos de cada menú</h3>
+        <div id="reservaDaySelector" class="day-tabs" style="margin-bottom:1.5rem;"></div>
+        <div id="reservaMenuItems" class="menu-items"></div>
+        <div class="carrito-resumen">
+          <div class="cr-items"><b id="crCantidad">0</b> menús seleccionados</div>
+          <div class="cr-total" id="crTotal">$0</div>
+        </div>
+        <div class="wizard-nav">
+          <span></span>
+          <button class="btn-primary" id="btnPaso1Next">Continuar</button>
+        </div>
+      </div>
+
+      <!-- Paso 2: empaque y antojos -->
+      <div class="wizard-panel" id="panelPaso2" style="display:none;">
+        <h3 style="margin-bottom:0.3rem;font-size:1.15rem;">2. Elige tu empaque</h3>
+        <p style="color:var(--fog);font-size:0.85rem;margin-bottom:1rem;">Una sola elección para todo tu pedido.</p>
+        <div id="empaqueOptions" class="menu-items" style="margin-bottom:2rem;"></div>
+
+        <h3 style="margin-bottom:0.3rem;font-size:1.15rem;">¿Se te antoja algo más?</h3>
+        <p style="color:var(--fog);font-size:0.85rem;margin-bottom:1rem;">Recién hecho, directo con tu pedido.</p>
+        <div id="adicionalesOptions" class="menu-items"></div>
+
+        <div class="wizard-nav">
+          <button class="btn-ghost" id="btnPaso2Back">← Atrás</button>
+          <button class="btn-primary" id="btnPaso2Next">Continuar</button>
+        </div>
+      </div>
+
+      <!-- Paso 3: entrega y datos -->
+      <div class="wizard-panel" id="panelPaso3" style="display:none;">
+        <h3 style="margin-bottom:1rem;font-size:1.15rem;">3. ¿Cómo lo quieres recibir?</h3>
+        <div class="toggle-group">
+          <div class="toggle-opt disabled" data-modo="recogida">
+            <b>Recoger en el punto</b>
+            <span>Muy pronto</span>
+          </div>
+          <div class="toggle-opt active" data-modo="domicilio">
+            <b>A domicilio</b>
+            <span>$6.000</span>
+          </div>
+        </div>
+        <div class="field" id="fieldDireccion" style="margin-bottom:1rem;">
+          <label>Dirección de entrega</label>
+          <textarea id="inputDireccion" rows="2" placeholder="Barrio, calle, referencia..."></textarea>
+        </div>
+        <div class="field" style="margin-bottom:1rem;">
+          <label>Elige tu horario de entrega</label>
+          <div id="horariosGrid" class="horarios-grid"><div class="menu-empty">Cargando horarios disponibles...</div></div>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label>Nombre completo</label>
+            <input type="text" id="inputNombre" placeholder="Tu nombre">
+          </div>
+          <div class="field">
+            <label>Teléfono de contacto</label>
+            <input type="tel" id="inputTelefono" placeholder="300 000 0000">
+          </div>
+        </div>
+        <div class="field" style="margin-bottom:1rem;">
+          <label>Observaciones (opcional)</label>
+          <textarea id="inputObservaciones" rows="2" placeholder="Ej: sin picante, tocar el timbre azul, etc."></textarea>
+        </div>
+        <div class="wizard-nav">
+          <button class="btn-ghost" id="btnPaso3Back">← Atrás</button>
+          <button class="btn-primary" id="btnPaso3Next">Continuar</button>
+        </div>
+      </div>
+
+      <!-- Paso 4: resumen y confirmación -->
+      <div class="wizard-panel" id="panelPaso4" style="display:none;">
+        <h3 style="margin-bottom:1rem;font-size:1.15rem;">4. Confirma tu reserva</h3>
+        <div id="resumenReserva"></div>
+        <div class="price-summary">
+          <span class="ps-label">Total a pagar (contra entrega)</span>
+          <span class="ps-value" id="resumenTotal">$6.000</span>
+        </div>
+        <div class="wizard-nav">
+          <button class="btn-ghost" id="btnPaso4Back">← Atrás</button>
+          <button class="btn-primary" id="btnConfirmar">Confirmar reserva</button>
+        </div>
+      </div>
+
+      <!-- Confirmación final -->
+      <div class="wizard-panel" id="panelConfirmado" style="display:none;">
+        <div class="confirm-box">
+          <div class="confirm-icon">✓</div>
+          <h3 style="font-size:1.3rem;margin-bottom:0.5rem;">¡Reserva enviada!</h3>
+          <p style="color:var(--fog);font-size:0.9rem;">Muy pronto te contactaremos para confirmar los últimos detalles.</p>
+          <div class="confirm-details" id="confirmDetails"></div>
+          <button class="btn-secondary" onclick="location.reload()">Hacer otra reserva</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-grid">
+    <div>
+      <div class="nav-brand" style="margin-bottom:1rem;">
+        <img src="logo-lunch365.png" alt="Santa Elena Lunch365">
+        <span style="color:var(--gold-light);">Lunch365</span>
+      </div>
+      <p>Un proyecto de Agroinversiones Industriales Santa Elena — Natural y Orgánico. Neiva, Huila.</p>
+    </div>
+    <div>
+      <h4>Contacto</h4>
+      <ul>
+        <li><a href="https://wa.me/573247573445?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20de%20Santa%20Elena%20Lunch365" target="_blank" rel="noopener">WhatsApp: +57 324 757 3445</a></li>
+        <li class="placeholder-note">Punto de recogida — foto y ubicación muy pronto</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Horario</h4>
+      <ul>
+        <li>Martes a sábado</li>
+        <li>Reserva el menú del día hasta las 12:00 m.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    © <span id="anioActual"></span> Santa Elena Lunch365 · Agroinversiones Industriales Santa Elena
+  </div>
+</footer>
+
+<div class="install-banner" id="installBanner">
+  <span>📲 Instala Lunch365 en tu celular para reservar más rápido</span>
+  <button id="btnInstall">Instalar</button>
+  <button class="install-close" id="btnInstallClose">✕</button>
+</div>
+
+<a class="whatsapp-float" id="whatsappFloat" href="https://wa.me/573247573445?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20de%20Santa%20Elena%20Lunch365" target="_blank" rel="noopener" title="Habla con un asesor por WhatsApp">💬</a>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+/* ═══════════════════════════════════════════════════════════════
+   Santa Elena Lunch365 — Sitio público de reservas
+   Comparte el mismo backend Supabase que la app administrativa.
+   Solo LEE app_state (planSemanal, menusMaestro) — nunca escribe ahí.
+   Escribe en las tablas nuevas: cupos_diarios / reservas_web,
+   vía la función atómica reservar_cupo() (ver supabase_schema_web.sql).
+   ═══════════════════════════════════════════════════════════════ */
+
+const SUPABASE_URL = 'https://peqgtsrajoxkgbvemjkm.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBlcWd0c3Jham94a2didmVtamttIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODMyNjI4NDksImV4cCI6MjA5ODgzODg0OX0.J3ANcjFUNcj7reDCeS-IoEZTwa6DYUvYFUATcnUvRA0';
+const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+// La foto de cada plato viene directo del menú (campo "foto", una URL de
+// Supabase Storage) — se sube desde el Banco de Menús de la app y llega
+// aquí en vivo por la misma suscripción realtime que ya trae menusMaestro.
+function fotoMenuHTML(menu) {
+  if (menu.foto) return `<div class="mi-photo"><img src="${menu.foto}" alt="${escapeHtmlWeb(menu.nombre)}" loading="lazy"></div>`;
+  return `<div class="mi-photo mi-photo-placeholder"><span>🍽️</span></div>`;
+}
+
+// Fotos de empaques y adicionales — se suben desde "Empaques y Adicionales"
+// en la app (mismo mecanismo que las fotos de menú) y llegan aquí vía app_state.
+function fotoExtraHTML(extra) {
+  if (extra.fotoUrl) return `<div class="mi-photo"><img src="${extra.fotoUrl}" alt="${escapeHtmlWeb(extra.nombre)}" loading="lazy"></div>`;
+  const icono = extra.tipo === 'empaque' ? '📦' : '🍽️';
+  return `<div class="mi-photo mi-photo-placeholder"><span>${icono}</span></div>`;
+}
+
+function escapeHtmlWeb(str) {
+  if (str === null || str === undefined) return '';
+  return String(str).replace(/[&<>"']/g, m => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[m]));
+}
+
+// TODO Elkin: cuando el punto de recogida esté instalado, pega aquí la URL de
+// Google Maps (botón "Compartir" → "Copiar enlace") y la URL de la foto del
+// punto — el botón "Cómo llegar" y la foto se activan solos, sin tocar nada más.
+const PUNTO_RECOGIDA = {
+  mapsUrl: null,
+  fotoUrl: null
+};
+
+function inicializarPuntoRecogida() {
+  if (PUNTO_RECOGIDA.fotoUrl) {
+    document.getElementById('puntoFoto').innerHTML = `<img src="${PUNTO_RECOGIDA.fotoUrl}" alt="Punto de recogida Santa Elena Lunch365" style="width:100%;height:100%;object-fit:cover;">`;
+  }
+  const btn = document.getElementById('btnComoLlegar');
+  if (PUNTO_RECOGIDA.mapsUrl) {
+    btn.disabled = false;
+    btn.classList.remove('soon');
+    btn.textContent = '📍 Cómo llegar';
+    btn.addEventListener('click', () => window.open(PUNTO_RECOGIDA.mapsUrl, '_blank', 'noopener'));
+  }
+}
+
+const DIAS_OPERACION = ['Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
+const DIAS_CORTOS = { 'Martes': 'Mar', 'Miércoles': 'Mié', 'Jueves': 'Jue', 'Viernes': 'Vie', 'Sábado': 'Sáb' };
+const VENTANA_DIAS = 6; // cuántos días operativos hacia adelante se muestran
+
+let CONFIG = { cupo_diario_default: 100, valor_recogida: 6000, valor_domicilio_adicional: 0, hora_corte: '12:00' };
+let MENUS_MAESTRO = [];
+let PLAN_SEMANAL = {};
+let CUPOS = {};        // { 'YYYY-MM-DD': {cupo_total, cupo_disponible} }
+let DIAS_DISPONIBLES = []; // [{fecha, dayName, menus:[menu,...]}]
+let EXTRAS = [];       // catálogo completo de "Empaques y Adicionales" (app_state)
+let EMPAQUES = [];     // EXTRAS.tipo === 'empaque', activos
+let ADICIONALES = [];  // EXTRAS.tipo === 'adicional', activos
+let seleccion = { fecha: null, modo: 'domicilio', horaEntrega: null, empaqueId: null };
+let carrito = {}; // { [menuId]: { menu, cantidad } } — cuántos de cada menú para el día elegido
+let antojos = {}; // { [extraId]: { extra, cantidad } } — adicionales elegidos (choco, café, pan)
+
+// Turnos de entrega: cada pedido ocupa un espacio de HORARIO_INTERVALO minutos
+// en la ruta. Rango amplio (6:00am–12:00m) a propósito para dar más espacios
+// que los ~52 que daría la ventana real de ruta — no se muestra como
+// "horario de reparto" en ningún otro texto del sitio, es solo la agenda.
+const HORARIO_INICIO_MIN = 6 * 60;   // 06:00
+const HORARIO_FIN_MIN = 12 * 60;     // 12:00
+const HORARIO_INTERVALO = 4;         // minutos
+let HORARIOS_OCUPADOS = new Set();
+
+function minutosAHora(min) {
+  const h = Math.floor(min / 60);
+  const m = min % 60;
+  return pad(h) + ':' + pad(m);
+}
+
+function generarHorariosDelDia() {
+  const horarios = [];
+  for (let m = HORARIO_INICIO_MIN; m < HORARIO_FIN_MIN; m += HORARIO_INTERVALO) {
+    horarios.push(minutosAHora(m));
+  }
+  return horarios;
+}
+
+function pad(n) { return n < 10 ? '0' + n : '' + n; }
+function toISODate(d) { return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()); }
+function todayStr() { return toISODate(new Date()); }
+
+// Réplica exacta de getLunesDeFecha() de la app administrativa (index.html linea 3101)
+function getLunesDeFecha(fecha) {
+  const d = new Date(fecha + 'T00:00:00');
+  const day = d.getDay();
+  const diff = day === 0 ? -6 : 1 - day;
+  d.setDate(d.getDate() + diff);
+  return toISODate(d);
+}
+
+function nombreDiaJS(fecha) {
+  const NOMBRES = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
+  return NOMBRES[new Date(fecha + 'T00:00:00').getDay()];
+}
+
+function formatoFechaCorta(fecha) {
+  const d = new Date(fecha + 'T00:00:00');
+  return d.getDate() + ' ' + ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'][d.getMonth()];
+}
+
+function horaCorteHaPasado(fecha) {
+  // La reserva de "fecha" cierra a la hora_corte del MISMO día (ej: el
+  // menú del martes se puede pedir hasta el mediodía del martes).
+  const [hh, mm] = CONFIG.hora_corte.split(':').map(Number);
+  const corte = new Date(fecha + 'T00:00:00');
+  corte.setHours(hh, mm, 0, 0);
+  return new Date() > corte;
+}
+
+function construirVentanaDeDias() {
+  const dias = [];
+  let cursor = new Date();
+  let agregados = 0;
+  let intentos = 0;
+  while (agregados < VENTANA_DIAS && intentos < 30) {
+    const fecha = toISODate(cursor);
+    const nombreDia = nombreDiaJS(fecha);
+    if (DIAS_OPERACION.includes(nombreDia) && !horaCorteHaPasado(fecha)) {
+      dias.push({ fecha, dayName: nombreDia });
+      agregados++;
+    }
+    cursor.setDate(cursor.getDate() + 1);
+    intentos++;
+  }
+  return dias;
+}
+
+function menusOfrecidosEnDia(fecha, dayName) {
+  const lunes = getLunesDeFecha(fecha);
+  const semana = PLAN_SEMANAL[lunes];
+  if (!semana || !semana.dias || !semana.dias[dayName]) return [];
+  const entradas = semana.dias[dayName].menus || [];
+  return entradas
+    .map(e => MENUS_MAESTRO.find(m => String(m.id) === String(e.menuId)))
+    .filter(Boolean);
+}
+
+async function cargarDatosIniciales() {
+  const [{ data: rowsState }, { data: cfgRows }] = await Promise.all([
+    sb.from('app_state').select('id,data').in('id', ['planSemanal', 'menusMaestro', 'extrasLunch365']),
+    sb.from('configuracion_reservas').select('*').eq('id', 1)
+  ]);
+
+  (rowsState || []).forEach(r => {
+    if (r.id === 'planSemanal') PLAN_SEMANAL = r.data || {};
+    if (r.id === 'menusMaestro') MENUS_MAESTRO = r.data || [];
+    if (r.id === 'extrasLunch365') EXTRAS = r.data || [];
+  });
+  if (cfgRows && cfgRows[0]) CONFIG = cfgRows[0];
+  actualizarCatalogoExtras();
+
+  document.getElementById('stat-menus').textContent = MENUS_MAESTRO.length || 21;
+
+  DIAS_DISPONIBLES = construirVentanaDeDias().map(d => ({
+    ...d,
+    menus: menusOfrecidosEnDia(d.fecha, d.dayName)
+  }));
+
+  const fechas = DIAS_DISPONIBLES.map(d => d.fecha);
+  const { data: cuposRows } = await sb.from('cupos_diarios').select('*').in('fecha', fechas);
+  (cuposRows || []).forEach(c => { CUPOS[c.fecha] = c; });
+
+  renderMenuSection();
+  renderReservaDaySelector();
+  suscribirRealtimeCupos();
+  suscribirRealtimeMenus();
+  suscribirRealtimeHorarios();
+}
+
+function recalcularDiasDisponibles() {
+  DIAS_DISPONIBLES = construirVentanaDeDias().map(d => ({
+    ...d,
+    menus: menusOfrecidosEnDia(d.fecha, d.dayName)
+  }));
+  renderMenuSection();
+  renderReservaDaySelector();
+}
+
+// Igual que suscribirRealtimeCupos(), pero para cambios en el Plan Semanal o el Banco de
+// Menús hechos desde la app administrativa — sin esto, el sitio solo veía el menú del día
+// tal como estaba al momento de cargar la página, y había que refrescar para verlo actualizado.
+function suscribirRealtimeMenus() {
+  sb.channel('menus-publico')
+    .on('postgres_changes', { event: '*', schema: 'public', table: 'app_state' }, payload => {
+      if (!payload.new || !payload.new.id) return;
+      if (payload.new.id === 'planSemanal') {
+        PLAN_SEMANAL = payload.new.data || {};
+      } else if (payload.new.id === 'menusMaestro') {
+        MENUS_MAESTRO = payload.new.data || [];
+        document.getElementById('stat-menus').textContent = MENUS_MAESTRO.length || 21;
+      } else if (payload.new.id === 'extrasLunch365') {
+        EXTRAS = payload.new.data || [];
+        actualizarCatalogoExtras();
+        renderEmpaqueYAdicionales();
+        return;
+      } else {
+        return;
+      }
+      recalcularDiasDisponibles();
+    })
+    .subscribe();
+}
+
+function actualizarCatalogoExtras() {
+  EMPAQUES = EXTRAS.filter(e => e.tipo === 'empaque' && e.activo !== false);
+  ADICIONALES = EXTRAS.filter(e => e.tipo === 'adicional' && e.activo !== false);
+  if (!seleccion.empaqueId || !EMPAQUES.find(e => e.id === seleccion.empaqueId)) {
+    const clasico = EMPAQUES.find(e => !e.precio) || EMPAQUES[0];
+    seleccion.empaqueId = clasico ? clasico.id : null;
+  }
+}
+
+function cupoDisponibleDe(fecha) {
+  const row = CUPOS[fecha];
+  return row ? row.cupo_disponible : CONFIG.cupo_diario_default;
+}
+function cupoTotalDe(fecha) {
+  const row = CUPOS[fecha];
+  return row ? row.cupo_total : CONFIG.cupo_diario_default;
+}
+
+let tabActivo = null;
+
+function renderMenuSection() {
+  const tabsEl = document.getElementById('dayTabs');
+  const panelsEl = document.getElementById('dayPanels');
+  tabsEl.innerHTML = '';
+  panelsEl.innerHTML = '';
+
+  if (!DIAS_DISPONIBLES.length) {
+    panelsEl.innerHTML = '<div class="menu-empty">Aún no hay menú publicado para los próximos días. Vuelve pronto.</div>';
+    return;
+  }
+
+  DIAS_DISPONIBLES.forEach((d, i) => {
+    const disp = cupoDisponibleDe(d.fecha);
+    const total = cupoTotalDe(d.fecha);
+    const agotado = disp <= 0;
+
+    const tab = document.createElement('div');
+    tab.className = 'day-tab' + (i === 0 ? ' active' : '') + (agotado ? ' agotado' : '');
+    tab.dataset.fecha = d.fecha;
+    tab.innerHTML = `<span class="dt-name">${DIAS_CORTOS[d.dayName]}</span><span class="dt-date">${formatoFechaCorta(d.fecha)}</span><span class="dt-cupos">${agotado ? '<span class="sold-out-stamp">Sold out</span>' : 'Disponibles ' + disp}</span>`;
+    tab.addEventListener('click', () => activarTabMenu(d.fecha));
+    tabsEl.appendChild(tab);
+
+    const panel = document.createElement('div');
+    panel.className = 'menu-day-panel' + (i === 0 ? ' active' : '');
+    panel.dataset.fecha = d.fecha;
+    panel.innerHTML = renderPanelHTML(d, disp, total);
+    panelsEl.appendChild(panel);
+  });
+
+  tabActivo = DIAS_DISPONIBLES[0].fecha;
+}
+
+function renderPanelHTML(d, disp, total) {
+  const pct = total > 0 ? Math.max(0, Math.min(100, (disp / total) * 100)) : 0;
+  const low = disp <= total * 0.2;
+  let itemsHTML = '<div class="menu-empty">El menú de este día aún no ha sido publicado.</div>';
+  if (d.menus.length) {
+    itemsHTML = '<div class="menu-items">' + d.menus.map(m => `
+      <div class="menu-item">
+        ${fotoMenuHTML(m)}
+        <div class="mi-body">
+          <div class="mi-region">${m.region || m.tipoDia}</div>
+          <h4>${m.nombre}</h4>
+          <div class="mi-gramaje">${m.gramaje ? m.gramaje + ' aprox.' : ''}</div>
+        </div>
+      </div>`).join('') + '</div>';
+  }
+  return `
+    <div class="cupo-bar-wrap">
+      <div class="cupo-bar-label"><span>Cupos de ${d.dayName} ${formatoFechaCorta(d.fecha)}</span><b>${disp <= 0 ? '<span class="sold-out-stamp">Sold out</span>' : 'Disponibles ' + disp}</b></div>
+      <div class="cupo-bar"><div class="cupo-bar-fill${low ? ' low' : ''}" style="width:${pct}%"></div></div>
+    </div>
+    ${itemsHTML}
+  `;
+}
+
+function activarTabMenu(fecha) {
+  document.querySelectorAll('#dayTabs .day-tab').forEach(t => t.classList.toggle('active', t.dataset.fecha === fecha));
+  document.querySelectorAll('#dayPanels .menu-day-panel').forEach(p => p.classList.toggle('active', p.dataset.fecha === fecha));
+  tabActivo = fecha;
+}
+
+function suscribirRealtimeCupos() {
+  sb.channel('cupos-publico')
+    .on('postgres_changes', { event: '*', schema: 'public', table: 'cupos_diarios' }, payload => {
+      const row = payload.new;
+      if (!row || !row.fecha) return;
+      CUPOS[row.fecha] = row;
+      renderMenuSection();
+      renderReservaDaySelector();
+    })
+    .subscribe();
+}
+
+/* ── Horario de entrega (turnos de HORARIO_INTERVALO minutos) ── */
+
+async function cargarHorariosParaFecha(fecha) {
+  seleccion.horaEntrega = null;
+  HORARIOS_OCUPADOS = new Set();
+  const { data, error } = await sb.from('horarios_entrega').select('hora').eq('fecha', fecha);
+  if (!error && data) data.forEach(r => HORARIOS_OCUPADOS.add(r.hora));
+  renderHorariosGrid();
+}
+
+function renderHorariosGrid() {
+  const el = document.getElementById('horariosGrid');
+  if (!el) return;
+  const horarios = generarHorariosDelDia();
+  el.innerHTML = horarios.map(h => {
+    const ocupado = HORARIOS_OCUPADOS.has(h);
+    const sel = seleccion.horaEntrega === h;
+    return `<div class="horario-slot${ocupado ? ' ocupado' : ''}${sel ? ' selected' : ''}" data-hora="${h}">${h}</div>`;
+  }).join('');
+  el.querySelectorAll('.horario-slot:not(.ocupado)').forEach(slot => {
+    slot.addEventListener('click', () => {
+      seleccion.horaEntrega = slot.dataset.hora;
+      renderHorariosGrid();
+    });
+  });
+}
+
+function suscribirRealtimeHorarios() {
+  sb.channel('horarios-publico')
+    .on('postgres_changes', { event: '*', schema: 'public', table: 'horarios_entrega' }, payload => {
+      const row = payload.new || payload.old;
+      if (!row || row.fecha !== seleccion.fecha) return;
+      if (payload.eventType === 'DELETE') HORARIOS_OCUPADOS.delete(row.hora);
+      else HORARIOS_OCUPADOS.add(row.hora);
+      renderHorariosGrid();
+    })
+    .subscribe();
+}
+
+/* ── Asistente de reserva (día suelto) ── */
+
+function renderReservaDaySelector() {
+  const el = document.getElementById('reservaDaySelector');
+  el.innerHTML = '';
+  DIAS_DISPONIBLES.forEach((d, i) => {
+    const disp = cupoDisponibleDe(d.fecha);
+    const agotado = disp <= 0 || !d.menus.length;
+    const tab = document.createElement('div');
+    tab.className = 'day-tab' + (agotado ? ' agotado' : '') + (seleccion.fecha === d.fecha ? ' active' : '');
+    tab.dataset.fecha = d.fecha;
+    tab.innerHTML = `<span class="dt-name">${DIAS_CORTOS[d.dayName]}</span><span class="dt-date">${formatoFechaCorta(d.fecha)}</span><span class="dt-cupos">${agotado ? (d.menus.length ? '<span class="sold-out-stamp">Sold out</span>' : 'Sin menú') : 'Disponibles ' + disp}</span>`;
+    if (!agotado) tab.addEventListener('click', () => seleccionarDiaReserva(d.fecha));
+    el.appendChild(tab);
+  });
+  if (!seleccion.fecha) {
+    const primero = DIAS_DISPONIBLES.find(d => cupoDisponibleDe(d.fecha) > 0 && d.menus.length);
+    if (primero) seleccionarDiaReserva(primero.fecha);
+  }
+}
+
+function seleccionarDiaReserva(fecha) {
+  seleccion.fecha = fecha;
+  carrito = {};
+  document.querySelectorAll('#reservaDaySelector .day-tab').forEach(t => t.classList.toggle('active', t.dataset.fecha === fecha));
+  const d = DIAS_DISPONIBLES.find(x => x.fecha === fecha);
+  const el = document.getElementById('reservaMenuItems');
+  el.innerHTML = (d.menus || []).map(m => `
+    <div class="menu-item wizard-item" data-menu-id="${m.id}">
+      ${fotoMenuHTML(m)}
+      <div class="mi-body">
+        <div class="mi-region">${m.region || m.tipoDia}</div>
+        <h4>${m.nombre}</h4>
+        <div class="mi-gramaje">${m.gramaje ? m.gramaje + ' aprox.' : ''}</div>
+        <div class="qty-stepper">
+          <button type="button" class="qty-btn" data-accion="restar" disabled>−</button>
+          <span class="qty-value">0</span>
+          <button type="button" class="qty-btn" data-accion="sumar">+</button>
+        </div>
+      </div>
+    </div>`).join('');
+  el.querySelectorAll('.menu-item').forEach(card => {
+    const menuId = card.dataset.menuId;
+    const menu = d.menus.find(m => String(m.id) === menuId);
+    const qtyValue = card.querySelector('.qty-value');
+    const btnRestar = card.querySelector('[data-accion="restar"]');
+    const btnSumar = card.querySelector('[data-accion="sumar"]');
+    const actualizar = () => {
+      const cant = (carrito[menuId] && carrito[menuId].cantidad) || 0;
+      qtyValue.textContent = cant;
+      btnRestar.disabled = cant <= 0;
+      card.classList.toggle('has-qty', cant > 0);
+      actualizarResumenCarrito();
+    };
+    btnSumar.addEventListener('click', () => {
+      const actual = (carrito[menuId] && carrito[menuId].cantidad) || 0;
+      carrito[menuId] = { menu, cantidad: actual + 1 };
+      actualizar();
+    });
+    btnRestar.addEventListener('click', () => {
+      const actual = (carrito[menuId] && carrito[menuId].cantidad) || 0;
+      if (actual <= 1) delete carrito[menuId];
+      else carrito[menuId] = { menu, cantidad: actual - 1 };
+      actualizar();
+    });
+  });
+  actualizarResumenCarrito();
+}
+
+function cantidadTotalCarrito() {
+  return Object.values(carrito).reduce((s, it) => s + it.cantidad, 0);
+}
+
+function actualizarResumenCarrito() {
+  const total = cantidadTotalCarrito();
+  const subtotal = total * CONFIG.valor_recogida;
+  const crCant = document.getElementById('crCantidad');
+  const crTotal = document.getElementById('crTotal');
+  if (crCant) crCant.textContent = total;
+  if (crTotal) crTotal.textContent = '$' + subtotal.toLocaleString('es-CO');
+}
+
+/* ── Paso 2: empaque (elección única) y antojos (cantidad) ── */
+
+function totalAntojos() {
+  return Object.values(antojos).reduce((s, it) => s + it.cantidad * it.extra.precio, 0);
+}
+
+function empaqueElegido() {
+  return EMPAQUES.find(e => e.id === seleccion.empaqueId) || null;
+}
+
+function renderEmpaqueYAdicionales() {
+  const cantidadTotal = cantidadTotalCarrito();
+
+  const elEmpaques = document.getElementById('empaqueOptions');
+  if (elEmpaques) {
+    elEmpaques.innerHTML = EMPAQUES.map(e => {
+      const selected = e.id === seleccion.empaqueId;
+      const nota = e.precio > 0
+        ? `+$${e.precio.toLocaleString('es-CO')} por unidad · +$${(e.precio * cantidadTotal).toLocaleString('es-CO')} en total`
+        : 'Incluido, sin costo adicional';
+      return `
+      <div class="menu-item wizard-item${selected ? ' selected has-qty' : ''}" data-extra-id="${e.id}">
+        ${fotoExtraHTML(e)}
+        <div class="mi-body">
+          <h4>${e.nombre}</h4>
+          <div class="mi-gramaje">${nota}</div>
+        </div>
+      </div>`;
+    }).join('') || '<div class="menu-empty">No hay opciones de empaque configuradas.</div>';
+    elEmpaques.querySelectorAll('.menu-item').forEach(card => {
+      card.addEventListener('click', () => {
+        seleccion.empaqueId = card.dataset.extraId;
+        renderEmpaqueYAdicionales();
+      });
+    });
+  }
+
+  const elAdicionales = document.getElementById('adicionalesOptions');
+  if (elAdicionales) {
+    elAdicionales.innerHTML = ADICIONALES.map(e => {
+      const cant = (antojos[e.id] && antojos[e.id].cantidad) || 0;
+      return `
+      <div class="menu-item wizard-item${cant > 0 ? ' has-qty' : ''}" data-extra-id="${e.id}">
+        ${fotoExtraHTML(e)}
+        <div class="mi-body">
+          <h4>${e.nombre}</h4>
+          <div class="mi-gramaje">$${e.precio.toLocaleString('es-CO')} c/u</div>
+          <div class="qty-stepper">
+            <button type="button" class="qty-btn" data-accion="restar" ${cant <= 0 ? 'disabled' : ''}>−</button>
+            <span class="qty-value">${cant}</span>
+            <button type="button" class="qty-btn" data-accion="sumar">+</button>
+          </div>
+        </div>
+      </div>`;
+    }).join('') || '<div class="menu-empty">No hay adicionales disponibles por ahora.</div>';
+    elAdicionales.querySelectorAll('.menu-item').forEach(card => {
+      const extraId = card.dataset.extraId;
+      const extra = ADICIONALES.find(e => e.id === extraId);
+      const qtyValue = card.querySelector('.qty-value');
+      const btnRestar = card.querySelector('[data-accion="restar"]');
+      const btnSumar = card.querySelector('[data-accion="sumar"]');
+      const actualizar = () => {
+        const cant = (antojos[extraId] && antojos[extraId].cantidad) || 0;
+        qtyValue.textContent = cant;
+        btnRestar.disabled = cant <= 0;
+        card.classList.toggle('has-qty', cant > 0);
+      };
+      btnSumar.addEventListener('click', () => {
+        const actual = (antojos[extraId] && antojos[extraId].cantidad) || 0;
+        antojos[extraId] = { extra, cantidad: actual + 1 };
+        actualizar();
+      });
+      btnRestar.addEventListener('click', () => {
+        const actual = (antojos[extraId] && antojos[extraId].cantidad) || 0;
+        if (actual <= 1) delete antojos[extraId];
+        else antojos[extraId] = { extra, cantidad: actual - 1 };
+        actualizar();
+      });
+    });
+  }
+}
+
+function mostrarError(msg) {
+  const el = document.getElementById('alertError');
+  el.textContent = msg;
+  el.classList.add('show');
+  setTimeout(() => el.classList.remove('show'), 4500);
+}
+
+function irAPaso(n) {
+  [1, 2, 3, 4].forEach(i => {
+    document.getElementById('panelPaso' + i).style.display = (i === n ? '' : 'none');
+    document.querySelector(`.wizard-step-dot[data-step="${i}"]`).classList.toggle('done', i <= n);
+  });
+}
+
+document.getElementById('btnPaso1Next').addEventListener('click', () => {
+  if (!seleccion.fecha) return mostrarError('Elige un día disponible.');
+  if (cantidadTotalCarrito() < 1) return mostrarError('Elige al menos un menú.');
+  renderEmpaqueYAdicionales();
+  irAPaso(2);
+});
+
+document.getElementById('btnPaso2Back').addEventListener('click', () => irAPaso(1));
+document.getElementById('btnPaso2Next').addEventListener('click', () => {
+  if (!seleccion.empaqueId) return mostrarError('Elige un tipo de empaque.');
+  cargarHorariosParaFecha(seleccion.fecha);
+  irAPaso(3);
+});
+
+document.querySelectorAll('.toggle-opt').forEach(opt => {
+  opt.addEventListener('click', () => {
+    if (opt.classList.contains('disabled')) return;
+    document.querySelectorAll('.toggle-opt').forEach(o => o.classList.remove('active'));
+    opt.classList.add('active');
+    seleccion.modo = opt.dataset.modo;
+    document.getElementById('fieldDireccion').style.display = seleccion.modo === 'domicilio' ? '' : 'none';
+  });
+});
+
+document.getElementById('btnPaso3Back').addEventListener('click', () => irAPaso(2));
+document.getElementById('btnPaso4Back').addEventListener('click', () => irAPaso(3));
+
+function calcularTotalPedido() {
+  const subtotal = cantidadTotalCarrito() * CONFIG.valor_recogida;
+  const empaque = empaqueElegido();
+  const costoEmpaque = empaque ? empaque.precio * cantidadTotalCarrito() : 0;
+  return subtotal + costoEmpaque + totalAntojos() + (seleccion.modo === 'domicilio' ? CONFIG.valor_domicilio_adicional : 0);
+}
+
+function resumenItemsHTML() {
+  let html = Object.values(carrito).map(it => `
+    <div><span>${it.cantidad} × ${it.menu.nombre}</span><span>$${(it.cantidad * CONFIG.valor_recogida).toLocaleString('es-CO')}</span></div>`).join('');
+  const empaque = empaqueElegido();
+  if (empaque) {
+    const costo = empaque.precio * cantidadTotalCarrito();
+    html += `<div><span>Empaque: ${empaque.nombre}</span><span>${costo > 0 ? '$' + costo.toLocaleString('es-CO') : 'Sin costo'}</span></div>`;
+  }
+  html += Object.values(antojos).map(it => `
+    <div><span>${it.cantidad} × ${it.extra.nombre}</span><span>$${(it.cantidad * it.extra.precio).toLocaleString('es-CO')}</span></div>`).join('');
+  return html;
+}
+
+document.getElementById('btnPaso3Next').addEventListener('click', () => {
+  const nombre = document.getElementById('inputNombre').value.trim();
+  const telefono = document.getElementById('inputTelefono').value.trim();
+  const direccion = document.getElementById('inputDireccion').value.trim();
+  const observaciones = document.getElementById('inputObservaciones').value.trim();
+  if (!nombre) return mostrarError('Escribe tu nombre.');
+  if (!telefono || telefono.length < 7) return mostrarError('Escribe un teléfono de contacto válido.');
+  if (seleccion.modo === 'domicilio' && !direccion) return mostrarError('Escribe la dirección de entrega.');
+  if (!seleccion.horaEntrega) return mostrarError('Elige un horario de entrega.');
+
+  seleccion.nombre = nombre;
+  seleccion.telefono = telefono;
+  seleccion.direccion = direccion;
+  seleccion.observaciones = observaciones;
+
+  const valor = calcularTotalPedido();
+  seleccion.valor = valor;
+
+  const d = DIAS_DISPONIBLES.find(x => x.fecha === seleccion.fecha);
+  document.getElementById('resumenReserva').innerHTML = `
+    <div class="confirm-details">
+      <div><span>Día</span><span>${d.dayName} ${formatoFechaCorta(seleccion.fecha)}</span></div>
+      ${resumenItemsHTML()}
+      <div><span>Entrega</span><span>${seleccion.modo === 'domicilio' ? 'A domicilio' + (CONFIG.valor_domicilio_adicional > 0 ? ' (+$' + CONFIG.valor_domicilio_adicional.toLocaleString('es-CO') + ')' : '') : 'Recogida en punto'}</span></div>
+      <div><span>Horario</span><span>${seleccion.horaEntrega}</span></div>
+      <div><span>Nombre</span><span>${nombre}</span></div>
+      <div><span>Teléfono</span><span>${telefono}</span></div>
+      ${seleccion.modo === 'domicilio' ? `<div><span>Dirección</span><span>${direccion}</span></div>` : ''}
+      ${observaciones ? `<div><span>Observaciones</span><span>${observaciones}</span></div>` : ''}
+    </div>`;
+  document.getElementById('resumenTotal').textContent = '$' + valor.toLocaleString('es-CO');
+  irAPaso(4);
+});
+
+document.getElementById('btnConfirmar').addEventListener('click', async () => {
+  const btn = document.getElementById('btnConfirmar');
+  btn.disabled = true;
+  btn.textContent = 'Reservando...';
+  try {
+    const cantidadTotal = cantidadTotalCarrito();
+    const { data: exito, error: rpcError } = await sb.rpc('reservar_cupo', { p_fecha: seleccion.fecha, p_cantidad: cantidadTotal });
+    if (rpcError) throw rpcError;
+    if (!exito) {
+      mostrarError('Justo no alcanzan los cupos de ese día para la cantidad que pediste. Elige otra fecha o reduce la cantidad.');
+      recalcularDiasDisponibles();
+      irAPaso(1);
+      btn.disabled = false;
+      btn.textContent = 'Confirmar reserva';
+      return;
+    }
+
+    const grupoId = crypto.randomUUID();
+
+    // El horario se aparta con la clave única (fecha, hora) de la tabla —
+    // si otro cliente lo tomó en el último segundo, este insert falla solo
+    // y aquí devolvemos el cupo que ya habíamos reservado arriba.
+    const { error: horarioError } = await sb.from('horarios_entrega').insert({
+      fecha: seleccion.fecha, hora: seleccion.horaEntrega,
+      plan_grupo_id: grupoId, nombre_cliente: seleccion.nombre
+    });
+    if (horarioError) {
+      await sb.rpc('liberar_cupo', { p_fecha: seleccion.fecha, p_cantidad: cantidadTotal });
+      mostrarError('Justo alguien más tomó ese horario. Elige otro disponible.');
+      await cargarHorariosParaFecha(seleccion.fecha);
+      irAPaso(3);
+      btn.disabled = false;
+      btn.textContent = 'Confirmar reserva';
+      return;
+    }
+
+    const filas = Object.values(carrito).map(it => ({
+      plan_grupo_id: grupoId,
+      tipo_plan: 'dia',
+      fecha: seleccion.fecha,
+      menu_id: String(it.menu.id),
+      menu_nombre: it.menu.nombre,
+      cantidad: it.cantidad,
+      nombre_cliente: seleccion.nombre,
+      telefono: seleccion.telefono,
+      modo_entrega: seleccion.modo,
+      direccion: seleccion.modo === 'domicilio' ? seleccion.direccion : null,
+      valor: it.cantidad * CONFIG.valor_recogida,
+      metodo_pago: 'contra_entrega',
+      estado_pago: 'pendiente',
+      estado: 'pendiente_revision',
+      notas_cliente: seleccion.observaciones || null,
+      hora_entrega: seleccion.horaEntrega
+    }));
+    if (seleccion.modo === 'domicilio') {
+      filas.push({
+        plan_grupo_id: grupoId,
+        tipo_plan: 'dia',
+        fecha: seleccion.fecha,
+        menu_id: null,
+        menu_nombre: 'Domicilio',
+        cantidad: 1,
+        nombre_cliente: seleccion.nombre,
+        telefono: seleccion.telefono,
+        modo_entrega: seleccion.modo,
+        direccion: seleccion.direccion,
+        valor: CONFIG.valor_domicilio_adicional,
+        metodo_pago: 'contra_entrega',
+        estado_pago: 'pendiente',
+        estado: 'pendiente_revision',
+        notas_cliente: seleccion.observaciones || null,
+        hora_entrega: seleccion.horaEntrega
+      });
+    }
+
+    // Empaque: una sola elección por pedido, cobrada por cada menú del carrito.
+    // Se registra siempre (incluso el clásico $0) para que Diana sepa qué bandeja usar.
+    const empaque = empaqueElegido();
+    if (empaque) {
+      filas.push({
+        plan_grupo_id: grupoId,
+        tipo_plan: 'dia',
+        fecha: seleccion.fecha,
+        menu_id: null,
+        menu_nombre: 'Empaque: ' + empaque.nombre,
+        cantidad: cantidadTotal,
+        nombre_cliente: seleccion.nombre,
+        telefono: seleccion.telefono,
+        modo_entrega: seleccion.modo,
+        direccion: seleccion.modo === 'domicilio' ? seleccion.direccion : null,
+        valor: empaque.precio * cantidadTotal,
+        metodo_pago: 'contra_entrega',
+        estado_pago: 'pendiente',
+        estado: 'pendiente_revision',
+        notas_cliente: seleccion.observaciones || null,
+        hora_entrega: seleccion.horaEntrega
+      });
+    }
+
+    // Antojos (chocolate, café, pan) — una fila por adicional elegido, con su cantidad.
+    Object.values(antojos).forEach(it => {
+      filas.push({
+        plan_grupo_id: grupoId,
+        tipo_plan: 'dia',
+        fecha: seleccion.fecha,
+        menu_id: null,
+        menu_nombre: it.extra.nombre,
+        cantidad: it.cantidad,
+        nombre_cliente: seleccion.nombre,
+        telefono: seleccion.telefono,
+        modo_entrega: seleccion.modo,
+        direccion: seleccion.modo === 'domicilio' ? seleccion.direccion : null,
+        valor: it.cantidad * it.extra.precio,
+        metodo_pago: 'contra_entrega',
+        estado_pago: 'pendiente',
+        estado: 'pendiente_revision',
+        notas_cliente: seleccion.observaciones || null,
+        hora_entrega: seleccion.horaEntrega
+      });
+    });
+
+    const { error: insertError } = await sb.from('reservas_web').insert(filas);
+    if (insertError) throw insertError;
+
+    const d = DIAS_DISPONIBLES.find(x => x.fecha === seleccion.fecha);
+    document.getElementById('confirmDetails').innerHTML = `
+      <div><span>Día</span><span>${d.dayName} ${formatoFechaCorta(seleccion.fecha)}</span></div>
+      ${resumenItemsHTML()}
+      <div><span>Entrega</span><span>${seleccion.modo === 'domicilio' ? 'A domicilio' : 'Recogida en punto'}</span></div>
+      <div><span>Horario</span><span>${seleccion.horaEntrega}</span></div>
+      <div><span>Total</span><span>$${seleccion.valor.toLocaleString('es-CO')}</span></div>
+    `;
+    document.querySelectorAll('.wizard-panel').forEach(p => p.style.display = 'none');
+    document.getElementById('panelConfirmado').style.display = '';
+  } catch (err) {
+    console.error(err);
+    mostrarError('No pudimos guardar tu reserva. Intenta de nuevo en un momento.');
+    btn.disabled = false;
+    btn.textContent = 'Confirmar reserva';
+  }
+});
+
+/* ── Instalación PWA ── */
+let deferredPrompt = null;
+window.addEventListener('beforeinstallprompt', e => {
+  e.preventDefault();
+  deferredPrompt = e;
+  document.getElementById('installBanner').classList.add('show');
+});
+document.getElementById('btnInstall').addEventListener('click', async () => {
+  document.getElementById('installBanner').classList.remove('show');
+  if (deferredPrompt) { deferredPrompt.prompt(); await deferredPrompt.userChoice; deferredPrompt = null; }
+});
+document.getElementById('btnInstallClose').addEventListener('click', () => {
+  document.getElementById('installBanner').classList.remove('show');
+});
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
+}
+
+document.getElementById('anioActual').textContent = new Date().getFullYear();
+inicializarPuntoRecogida();
+
+cargarDatosIniciales().catch(err => {
+  console.error('Error cargando datos iniciales', err);
+  mostrarError('No pudimos cargar el menú en este momento. Intenta recargar la página.');
+});
+</script>
+</body>
+</html>
