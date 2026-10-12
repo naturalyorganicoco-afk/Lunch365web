@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="es-CO">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Seamos Rentables — Webinar gratuito | Human Holding Colombia</title>
+<meta name="description" content="Webinar gratuito, cada 15 días: cómo convertir tu negocio en un sistema con IA que vende, atiende y mide sin que tengas que estar encima de todo.">
+<meta name="theme-color" content="#0A0E14">
+<meta property="og:title" content="Seamos Rentables — Webinar gratuito">
+<meta property="og:description" content="Cómo convertir tu negocio en un sistema que vende, atiende y mide sin depender de ti. Human Holding Colombia.">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/svg+xml" href="assets/isotipo_simplificado_oscuro.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,500;0,600;1,500;1,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="hh-body">
+
+<!-- BARRA SUPERIOR (sin menú: un solo objetivo) -->
+<header class="topbar">
+  <div class="wrap topbar-in">
+    <a class="brand" href="#top" aria-label="Human Holding Colombia">
+      <img src="assets/isotipo_simplificado_oscuro.svg" alt="" width="34" height="37">
+      <span><b>Human Holding</b><i>Colombia</i></span>
+    </a>
+    <span class="topbar-tag">Webinar gratuito</span>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- 1. HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow">Webinar en vivo · Gratuito · Cupos limitados</p>
+      <p class="wordmark" aria-label="Seamos rentables">SEAMOS<br><span>RENTABLES.</span></p>
+      <h1>Cómo convertir tu negocio en un sistema con IA que <em>vende, atiende y mide</em> sin que tengas que estar encima de todo.</h1>
+      <p class="lead">Una sesión práctica para emprendedores y empresarios que ya venden, pero siguen siendo el centro de todo.</p>
+
+      <div class="when" aria-live="polite">
+        <div class="when-line">
+          <span class="when-lbl">Próximo webinar</span>
+          <b id="webinarFecha" class="mono">—</b>
+        </div>
+        <div class="count mono" id="countdown" role="timer" aria-label="Tiempo restante para el webinar">
+          <div><b data-u="d">--</b><span>días</span></div>
+          <i>:</i>
+          <div><b data-u="h">--</b><span>horas</span></div>
+          <i>:</i>
+          <div><b data-u="m">--</b><span>min</span></div>
+          <i>:</i>
+          <div><b data-u="s">--</b><span>seg</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FORMULARIO (principal) -->
+    <div class="card form-card" id="registro">
+      <div class="card-hdr">Reserva tu lugar</div>
+      <form class="reg-form" novalidate>
+        <div class="field">
+          <label class="label" for="nombre1">Nombre completo</label>
+          <input class="input" id="nombre1" name="nombre" autocomplete="name" required placeholder="Tu nombre">
+        </div>
+        <div class="field">
+          <label class="label" for="correo1">Correo electrónico</label>
+          <input class="input" id="correo1" name="correo" type="email" autocomplete="email" inputmode="email" required placeholder="tu@correo.com">
+        </div>
+        <div class="field">
+          <label class="label" for="tel1">WhatsApp</label>
+          <div class="phone">
+            <select class="select" name="pais" aria-label="Indicativo del país">
+              <option value="57" selected>CO +57</option>
+              <option value="52">MX +52</option>
+              <option value="51">PE +51</option>
+              <option value="54">AR +54</option>
+              <option value="56">CL +56</option>
+              <option value="593">EC +593</option>
+              <option value="507">PA +507</option>
+              <option value="506">CR +506</option>
+              <option value="55">BR +55</option>
+              <option value="1">US +1</option>
+            </select>
+            <input class="input" id="tel1" name="telefono" type="tel" autocomplete="tel-national" inputmode="tel" required placeholder="300 000 0000">
+          </div>
+        </div>
+        <fieldset class="field perfil">
+          <legend class="label">¿Cuál te describe mejor?</legend>
+          <label class="opt">
+            <input type="radio" name="perfil" value="emprendedor" required>
+            <span><b>Emprendedor</b><small>Estoy arrancando o todo depende de mí</small></span>
+          </label>
+          <label class="opt">
+            <input type="radio" name="perfil" value="empresario" required>
+            <span><b>Empresario</b><small>Ya tengo equipo y operación</small></span>
+          </label>
+        </fieldset>
+        <label class="consent">
+          <input type="checkbox" name="consentimiento" required>
+          <span>Autorizo el tratamiento de mis datos para recibir información del webinar. <a href="#privacidad">Política de datos</a>.</span>
+        </label>
+        <p class="form-err" role="alert" hidden></p>
+        <button class="btn btn-primary btn-block" type="submit">
+          <span class="btn-txt">Reservar mi cupo gratis</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+        <p class="note"><i class="dot"></i>Gratuito. Cupos limitados: cuando se llenen, el formulario cierra.</p>
+      </form>
+      <div class="ok" hidden>
+        <div class="ok-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+        <h2>Listo, tu cupo está reservado.</h2>
+        <p class="ok-when mono"></p>
+        <p>Te enviaremos el enlace de acceso por <b>correo y WhatsApp</b>. Guarda la fecha en tu calendario:</p>
+        <a class="btn btn-primary" id="addCal" target="_blank" rel="noopener">Agregar al calendario</a>
+        <p class="demo" hidden>Modo prueba: este registro no se guardó (falta conectar Supabase).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. DOLOR -->
+<section class="sec paper">
+  <div class="wrap narrow">
+    <p class="eyebrow dark">Eso tiene un nombre</p>
+    <h2 class="h-xl">Dependencia del <em>dueño</em>.</h2>
+    <p class="body-lg">Tienes clientes. Tienes ventas. Tal vez hasta equipo. Pero cuando algo importante pasa, todo termina en tu escritorio o en tu teléfono.</p>
+    <div class="trio">
+      <article class="card-lt">
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v10H9l-5 4z"/><path d="M8 9h8M8 12h5"/></svg>
+        <h3>Pedidos y mensajes sin orden</h3>
+        <p>WhatsApp, redes y llamadas sin un solo lugar donde ver quién compró, quién preguntó y a quién falta responder.</p>
+      </article>
+      <article class="card-lt">
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>
+        <h3>Decisiones sin datos</h3>
+        <p>No sabes cuánto te cuesta conseguir un cliente ni cuál canal sí te deja plata. Se decide por intuición.</p>
+      </article>
+      <article class="card-lt">
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 7v5l3 2"/></svg>
+        <h3>Trabajas más, pero no ganas más</h3>
+        <p>Contratar o vender más no resuelve el problema: lo hace más grande si la operación sigue dependiendo de ti.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 3. QUÉ VERÁS -->
+<section class="sec ink2" id="agenda">
+  <div class="wrap narrow">
+    <p class="eyebrow">Agenda del webinar</p>
+    <h2 class="h-lg">Qué vas a ver en la sesión</h2>
+    <ol class="steps">
+      <li>
+        <span class="step-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="M16 16l4 4"/></svg></span>
+        <div><span class="mono step-n">01</span><h3>El diagnóstico</h3>
+        <p>Por qué los intentos más comunes (contratar, automatizar a medias, vender más) no funcionan si no se hacen en el orden correcto.</p></div>
+      </li>
+      <li>
+        <span class="step-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6l5-2 6 2 5-2v14l-5 2-6-2-5 2z"/><path d="M9 4v14M15 6v14"/></svg></span>
+        <div><span class="mono step-n">02</span><h3>El mapa</h3>
+        <p>Cómo se ve un negocio ordenado: de la red social al WhatsApp, del WhatsApp al CRM, y del CRM al dato que te dice qué hacer.</p></div>
+      </li>
+      <li>
+        <span class="step-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="6" r="2.4"/><circle cx="18" cy="12" r="2.4"/><circle cx="6" cy="18" r="2.4"/><path d="M8.2 7l7.6 4M8.2 17l7.6-4"/></svg></span>
+        <div><span class="mono step-n">03</span><h3>El ecosistema con IA</h3>
+        <p>Agentes que atienden, contenido que se produce con criterio y un tablero que mide. Casos reales de nuestros propios negocios.</p></div>
+      </li>
+      <li>
+        <span class="step-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h14M13 6l6 6-6 6"/></svg></span>
+        <div><span class="mono step-n">04</span><h3>El siguiente paso</h3>
+        <p>Qué hacer el día después del webinar y cómo acceder, si te interesa, a una consultoría para tu caso.</p></div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- 4. MANIFIESTO -->
+<section class="sec manifesto">
+  <div class="wrap narrow center">
+    <p class="mf-kicker">Nuestra idea en tres palabras</p>
+    <p class="mf-big">Seamos <span>rentables.</span></p>
+    <p class="mf-text">Rentable no es vender más. Es ganar más con menos de ti.</p>
+    <span class="rule" aria-hidden="true"></span>
+  </div>
+</section>
+
+<!-- 5. QUIÉN -->
+<section class="sec paper" id="quienes">
+  <div class="wrap narrow">
+    <p class="eyebrow dark">Quiénes somos</p>
+    <h2 class="h-lg">Construimos primero en negocios propios</h2>
+    <p class="body-lg">Human Holding Colombia no vende teoría. Implementamos este ecosistema en nuestros propios negocios y luego lo llevamos a otros.</p>
+    <div class="proof">
+      <div class="proof-item"><b class="mono">+2.000</b><span>menús vendidos en 2 meses con Santa Elena Lunch365</span></div>
+      <div class="proof-item"><b class="mono">2</b><span>negocios reales operando con el ecosistema: Lunch365 y Natural &amp; Orgánico</span></div>
+      <div class="proof-item"><b class="mono">4</b><span>personas en el equipo: arquitectura comercial y 3 ingenieros en cada implementación</span></div>
+    </div>
+    <!-- TODO: foto de Elking + testimonios verificados (ver CONTEXTO) -->
+    <div class="person">
+      <div class="person-ph" aria-hidden="true"><img src="assets/isotipo_simplificado_oscuro.svg" alt="" width="56" height="62"></div>
+      <div>
+        <h3>Elking Aspricha</h3>
+        <p>Fundador de Human Holding Colombia. Arquitectura del ecosistema y estrategia comercial.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. PARA TI / NO PARA TI -->
+<section class="sec ink2">
+  <div class="wrap narrow">
+    <h2 class="h-lg">¿Es para ti?</h2>
+    <div class="fit yes">
+      <h3>Este webinar es para ti si…</h3>
+      <ul>
+        <li>Eres <b>emprendedor</b> y quieres ordenar tu negocio antes de crecer.</li>
+        <li>Eres <b>empresario</b> y sientes que sin ti la operación se frena.</li>
+        <li>Ya vendes, pero no sabes con claridad qué canal te deja plata.</li>
+        <li>Quieres usar IA con un plan, no como una moda.</li>
+      </ul>
+    </div>
+    <div class="fit no">
+      <h3>No es para ti si…</h3>
+      <ul>
+        <li>Aún no tienes un negocio o una idea que quieras llevar a la práctica.</li>
+        <li>Buscas una fórmula mágica sin implementación.</li>
+        <li>No estás dispuesto a cambiar cómo funciona tu operación.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 7. CÓMO FUNCIONA -->
+<section class="sec paper">
+  <div class="wrap narrow">
+    <p class="eyebrow dark">Sin letra menuda</p>
+    <h2 class="h-lg">Así funciona, paso a paso</h2>
+    <ol class="flow">
+      <li><span class="mono">1</span><div><h3>Te registras al webinar</h3><p>Gratis. Hacemos uno cada 15 días: dos al mes.</p></div></li>
+      <li><span class="mono">2</span><div><h3>Asistes en vivo</h3><p>Recibes el enlace por correo y WhatsApp antes de empezar.</p></div></li>
+      <li><span class="mono">3</span><div><h3>Si te interesa, entras al grupo de WhatsApp</h3><p>Es el espacio donde se agenda la consultoría para tu caso. No es obligatorio.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 8. CTA FINAL -->
+<section class="sec final">
+  <div class="wrap narrow center">
+    <h2 class="h-lg">Si tu negocio no puede funcionar sin ti, este webinar es el punto de partida.</h2>
+    <p class="body-lg">Reserva tu cupo ahora. <b id="finalFecha"></b></p>
+    <div class="card form-card form-card--alt" id="registro2">
+      <form class="reg-form" novalidate>
+        <div class="field"><label class="label" for="nombre2">Nombre completo</label>
+          <input class="input" id="nombre2" name="nombre" autocomplete="name" required placeholder="Tu nombre"></div>
+        <div class="field"><label class="label" for="correo2">Correo electrónico</label>
+          <input class="input" id="correo2" name="correo" type="email" autocomplete="email" inputmode="email" required placeholder="tu@correo.com"></div>
+        <div class="field"><label class="label" for="tel2">WhatsApp</label>
+          <div class="phone">
+            <select class="select" name="pais" aria-label="Indicativo del país">
+              <option value="57" selected>CO +57</option><option value="52">MX +52</option><option value="51">PE +51</option>
+              <option value="54">AR +54</option><option value="56">CL +56</option><option value="593">EC +593</option>
+              <option value="507">PA +507</option><option value="506">CR +506</option><option value="55">BR +55</option><option value="1">US +1</option>
+            </select>
+            <input class="input" id="tel2" name="telefono" type="tel" autocomplete="tel-national" inputmode="tel" required placeholder="300 000 0000">
+          </div></div>
+        <fieldset class="field perfil"><legend class="label">¿Cuál te describe mejor?</legend>
+          <label class="opt"><input type="radio" name="perfil" value="emprendedor" required><span><b>Emprendedor</b><small>Estoy arrancando o todo depende de mí</small></span></label>
+          <label class="opt"><input type="radio" name="perfil" value="empresario" required><span><b>Empresario</b><small>Ya tengo equipo y operación</small></span></label>
+        </fieldset>
+        <label class="consent"><input type="checkbox" name="consentimiento" required>
+          <span>Autorizo el tratamiento de mis datos para recibir información del webinar. <a href="#privacidad">Política de datos</a>.</span></label>
+        <p class="form-err" role="alert" hidden></p>
+        <button class="btn btn-primary btn-block" type="submit"><span class="btn-txt">Reservar mi cupo gratis</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        <p class="note"><i class="dot"></i>Gratuito. Un solo día. Cupos limitados.</p>
+      </form>
+      <div class="ok" hidden>
+        <div class="ok-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+        <h2>Listo, tu cupo está reservado.</h2>
+        <p class="ok-when mono"></p>
+        <p>Te enviaremos el enlace por <b>correo y WhatsApp</b>.</p>
+        <p class="demo" hidden>Modo prueba: este registro no se guardó (falta conectar Supabase).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- POLÍTICA DE DATOS (borrador: validar con abogado) -->
+<section class="sec ink2 legal" id="privacidad">
+  <div class="wrap narrow">
+    <h2 class="h-sm">Política de tratamiento de datos</h2>
+    <p>Human Holding Colombia (persona natural con establecimiento de comercio, Neiva, Huila) recolecta tu nombre, correo, WhatsApp y perfil (emprendedor o empresario) con la finalidad de registrarte al webinar, enviarte el enlace y recordatorios, y contactarte con información relacionada con nuestros servicios. Conforme a la Ley 1581 de 2012, puedes conocer, actualizar, rectificar o solicitar la supresión de tus datos escribiéndonos al correo de contacto o por WhatsApp. No vendemos tus datos a terceros.</p>
+    <p class="muted">[Pendiente: correo de contacto oficial y razón social/NIT del titular.]</p>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <div class="brand"><img src="assets/isotipo_simplificado_oscuro.svg" alt="" width="28" height="31"><span><b>Human Holding</b><i>Colombia</i></span></div>
+    <p>© <span id="year"></span> Human Holding Colombia · Seamos Rentables. Los resultados dependen de la implementación y de las condiciones de cada negocio. No prometemos resultados garantizados.</p>
+  </div>
+</footer>
+
+<!-- Barra fija móvil -->
+<div class="sticky" id="sticky" aria-hidden="true">
+  <a class="btn btn-primary btn-block" href="#registro">Reservar mi cupo gratis
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+</div>
+
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
