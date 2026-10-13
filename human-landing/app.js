@@ -44,6 +44,33 @@
   }
   paintFecha(); tick(); setInterval(tick, 1000);
 
+  /* ---------- Variante de titular (prueba A/B) y modo vista previa ----------
+     Enlace del anuncio: ?v=a o ?v=b  ·  Vista previa de pendientes: ?preview=1 */
+  var params = new URLSearchParams(location.search);
+  var variant = (params.get('v') || '').toLowerCase();
+  try { if (variant !== 'a' && variant !== 'b') variant = sessionStorage.getItem('hh_v') || 'a'; sessionStorage.setItem('hh_v', variant); } catch (e) { if (variant !== 'b') variant = 'a'; }
+  var h1 = document.getElementById('h1');
+  if (h1 && h1.getAttribute('data-' + variant)) h1.textContent = h1.getAttribute('data-' + variant);
+  var preview = params.get('preview') === '1';
+  if (preview) document.documentElement.classList.add('preview');
+
+  /* ---------- Video (se activa con VIDEO_YOUTUBE_ID) ---------- */
+  var vid = document.getElementById('video'), play = document.getElementById('videoPlay');
+  if (vid) {
+    if (C.VIDEO_ASPECT) vid.style.setProperty('--video-ratio', C.VIDEO_ASPECT);
+    if (C.VIDEO_YOUTUBE_ID || preview) vid.hidden = false;
+    if (play && C.VIDEO_YOUTUBE_ID) {
+      vid.classList.add('has-video');
+      play.addEventListener('click', function () {
+        var f = document.createElement('iframe');
+        f.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(C.VIDEO_YOUTUBE_ID) + '?autoplay=1&rel=0&modestbranding=1';
+        f.allow = 'autoplay; encrypted-media; picture-in-picture'; f.allowFullscreen = true; f.title = 'Video de Elking Aspricha';
+        play.replaceWith(f);
+        track('ViewContent', { content_name: 'Video webinar', content_category: variant });
+      });
+    }
+  }
+
   /* ---------- Atribución de pauta (UTM + fbclid + cookies de Meta) ---------- */
   var KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'utm_id', 'cid', 'fbclid'];
   function readCookie(n) { var m = document.cookie.match('(?:^|; )' + n + '=([^;]*)'); return m ? decodeURIComponent(m[1]) : ''; }
@@ -70,6 +97,7 @@
       s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s); }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
     window.fbq('init', C.META_PIXEL_ID);
     window.fbq('track', 'PageView');
+    window.fbq('trackCustom', 'LandingVariant', { variante: variant });
   }
 
   /* ---------- Formularios ---------- */
@@ -114,6 +142,7 @@
       perfil: f.perfil.value,
       webinar_fecha: new Date(target).toISOString(),
       consentimiento_datos: true,
+      variante_titular: variant,
       event_id: eventId
     };
     var a = attribution(); for (var k in a) payload[k] = a[k];
@@ -121,7 +150,7 @@
     btn.disabled = true;
     var txt = btn.querySelector('.btn-txt'), old = txt.textContent; txt.textContent = 'Reservando…';
     save(payload).then(function (res) {
-      track('Lead', { content_name: 'Webinar Seamos Rentables', status: payload.perfil }, eventId);
+      track('Lead', { content_name: 'Webinar Seamos Rentables', status: payload.perfil, content_category: variant }, eventId);
       track('CompleteRegistration', { content_name: 'Webinar Seamos Rentables' }, eventId + '_cr');
       var card = form.closest('.card');
       form.hidden = true;
@@ -150,7 +179,7 @@
       var any = forms.some(function (n) { return vis[n.id]; });
       sticky.classList.toggle('show', !any);
       sticky.setAttribute('aria-hidden', any ? 'true' : 'false');
-    }, { threshold: 0.15 });
+    }, { threshold: 0.5 });
     forms.forEach(function (n) { io.observe(n); });
   }
 

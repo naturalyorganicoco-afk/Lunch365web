@@ -11,6 +11,7 @@ create table if not exists public.leads_webinar (
   perfil               text not null check (perfil in ('emprendedor','empresario')),
   webinar_fecha        timestamptz not null,
   consentimiento_datos boolean not null default false,
+  variante_titular     text,                    -- 'a' o 'b' (prueba A/B del titular)
   event_id             text,
   utm_source text, utm_medium text, utm_campaign text, utm_content text, utm_term text, utm_id text,
   cid text, fbclid text, fbp text, fbc text,

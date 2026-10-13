@@ -8,6 +8,11 @@ window.HH_CONFIG = {
   DURATION_MIN: 60,
   WEBINAR_TITLE: 'Seamos Rentables — Webinar Human Holding Colombia',
 
+  // Video de Elking (YouTube sin listar). PENDIENTE: pegar el ID (lo que va después de v=).
+  // Mientras esté vacío, el bloque de video no se muestra (se ve con ?preview=1).
+  VIDEO_YOUTUBE_ID: '',
+  VIDEO_ASPECT: '16 / 9', // '4 / 5' o '9 / 16' si el video es vertical
+
   // Meta Pixel. PENDIENTE: ID del Pixel (se crea con la cuenta de Meta Business, capítulo 2.1).
   META_PIXEL_ID: '',
 
