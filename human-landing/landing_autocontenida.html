@@ -1,0 +1,807 @@
+<!doctype html>
+<html lang="es-CO">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Seamos Rentables — Webinar gratuito | Human Holding Colombia</title>
+<meta name="description" content="Webinar gratuito cada 15 días: descubre dónde se escapa la plata en tu negocio y cómo se arregla con ingeniería aplicada + IA.">
+<meta name="theme-color" content="#0A0E14">
+<meta property="og:title" content="Seamos Rentables — Webinar gratuito">
+<meta property="og:description" content="Ingeniería aplicada + IA = Empresas sólidas y rentables. Human Holding Colombia.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,500;0,600;1,500;1,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* Human Holding Colombia — Landing "Seamos Rentables"
+   Tokens del Sistema de diseño UI v1.0 (Drive: 05_MARCA_E_IDENTIDAD_VISUAL/5_Sistema_de_diseno_UI) */
+:root{
+  --ink:#0A0E14; --ink-2:#0E141D; --panel:#101620; --panel-2:#151C27;
+  --rule:#232C3B; --rule-soft:#1A2230;
+  --paper:#ECE8DF; --slate:#8A93A6; --slate-dim:#5B6578;
+  --gold:#C9A227; --gold-light:#E2C15A; --gold-dim:#8C7020; --gold-text-lt:#7A5F14;
+  --ok:#3D9970; --ok-text:#6FCB9F; --danger:#D4614B; --danger-text:#F0A090;
+  --sans:'IBM Plex Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  --serif:'IBM Plex Serif',Georgia,'Times New Roman',serif;
+  --mono:'IBM Plex Mono',ui-monospace,Menlo,Consolas,monospace;
+  --r:12px; --r-sm:8px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+.hh-body{margin:0;background:var(--ink);color:var(--paper);font:400 16px/1.55 var(--sans);-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums;padding-bottom:84px}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.mono{font-family:var(--mono)}
+.wrap{width:100%;max-width:1080px;margin:0 auto;padding:0 20px}
+.narrow{max-width:760px}
+.center{text-align:center}
+em{font-family:var(--serif);font-style:italic;font-weight:500;color:var(--gold-light)}
+
+/* Barra superior */
+.topbar{position:sticky;top:0;z-index:30;background:rgba(14,20,29,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule)}
+.topbar::after{content:'';position:absolute;left:20px;bottom:-1px;width:46px;height:2px;background:var(--gold)}
+.topbar-in{display:flex;align-items:center;justify-content:space-between;height:58px}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none}
+.brand img{width:auto;height:34px}
+.brand span{display:flex;flex-direction:column;line-height:1.1}
+.brand b{font:600 .92rem var(--serif)}
+.brand i{font:400 .56rem var(--mono);font-style:normal;letter-spacing:.16em;text-transform:uppercase;color:var(--slate);margin-top:3px}
+.topbar-tag{font:600 .62rem var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--gold-light);border:1px solid rgba(201,162,39,.35);background:rgba(201,162,39,.1);padding:5px 10px;border-radius:999px}
+
+/* Tipografía */
+.eyebrow{font:600 .66rem var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin:0 0 14px}
+.eyebrow.dark{color:var(--gold-text-lt)}
+.h-xl{font:600 clamp(2.2rem,8vw,3.6rem)/1.08 var(--serif);letter-spacing:-.01em;margin:0 0 18px}
+.h-lg{font:600 clamp(1.6rem,5.4vw,2.3rem)/1.18 var(--serif);letter-spacing:-.005em;margin:0 0 22px}
+.h-sm{font:600 1.1rem var(--serif);margin:0 0 12px}
+.body-lg{font-size:1.08rem;line-height:1.6;margin:0 0 28px}
+
+/* Hero */
+.hero{position:relative;padding:34px 0 46px;background:
+  radial-gradient(700px 360px at 85% -10%,rgba(201,162,39,.13),transparent 70%),var(--ink);border-bottom:1px solid var(--rule)}
+.hero-grid{display:grid;gap:30px}
+.wordmark{font:600 clamp(2.9rem,15vw,5.6rem)/.95 var(--serif);letter-spacing:-.02em;margin:0 0 20px}
+.wordmark span{color:var(--gold)}
+.desert{margin:0 0 20px;font:500 .9rem/1.45 var(--sans);color:var(--slate);max-width:40ch;border-left:2px solid var(--gold);padding-left:12px}
+.hero h1{font:600 clamp(1.5rem,6.2vw,2.2rem)/1.2 var(--serif);letter-spacing:-.01em;margin:0 0 14px;color:var(--paper)}
+.lead{color:#B9BFCC;margin:0 0 18px;max-width:50ch}
+.formula{margin:0 0 24px;display:flex;flex-wrap:wrap;gap:6px 10px;align-items:baseline;font:500 .78rem var(--mono);letter-spacing:.02em;color:var(--slate);border:1px solid rgba(201,162,39,.35);background:rgba(201,162,39,.08);border-radius:var(--r-sm);padding:10px 12px;max-width:max-content}
+.formula i{font-style:normal;color:var(--gold)}
+.formula b{color:var(--gold-light);font-weight:500}
+.when{background:var(--panel);border:1px solid var(--rule);border-left:3px solid var(--gold);border-radius:var(--r);padding:14px 16px;max-width:460px}
+.when-line{display:flex;flex-direction:column;gap:2px;margin-bottom:12px}
+.when-lbl{font:600 .62rem var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--slate)}
+.when-line b{font:500 .98rem var(--mono);color:var(--paper)}
+.count{display:flex;align-items:flex-start;gap:8px}
+.count div{display:flex;flex-direction:column;align-items:center;min-width:54px}
+.count b{font:500 1.9rem/1 var(--mono);letter-spacing:-.02em;color:var(--gold-light)}
+.count span{font:400 .58rem var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--slate);margin-top:6px}
+.count i{font:400 1.6rem/1 var(--mono);color:var(--slate-dim);font-style:normal}
+
+/* Tarjeta y formulario */
+.card{background:var(--panel);border:1px solid var(--rule);border-radius:var(--r);box-shadow:0 8px 24px rgba(0,0,0,.38);overflow:hidden}
+.card-hdr{padding:12px 18px;border-bottom:1px solid var(--rule);border-left:3px solid var(--gold);background:linear-gradient(90deg,rgba(201,162,39,.10),rgba(201,162,39,0) 75%);font:600 .68rem var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--gold-light)}
+.reg-form{padding:18px;display:flex;flex-direction:column;gap:14px}
+.field{display:flex;flex-direction:column;gap:6px;border:0;margin:0;padding:0;min-width:0}
+.label{font:600 .64rem var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--slate);padding:0}
+.input,.select{width:100%;background:var(--ink);border:1px solid var(--rule);border-radius:var(--r-sm);padding:12px;font:400 1rem var(--sans);color:var(--paper);color-scheme:dark;outline:none;transition:border-color .15s,box-shadow .15s}
+.input::placeholder{color:var(--slate-dim)}
+.input:focus,.select:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,162,39,.14)}
+.input.bad,.select.bad{border-color:var(--danger)}
+.phone{display:grid;grid-template-columns:104px 1fr;gap:8px}
+.perfil{gap:8px}
+.opt{display:block;cursor:pointer}
+.opt input{position:absolute;opacity:0;pointer-events:none}
+.opt span{display:flex;flex-direction:column;gap:2px;padding:11px 13px;border:1px solid var(--rule);border-radius:var(--r-sm);background:var(--ink);transition:border-color .15s,background .15s}
+.opt b{font:600 .92rem var(--sans)}
+.opt small{font-size:.76rem;color:var(--slate)}
+.opt input:checked + span{border-color:var(--gold);background:rgba(201,162,39,.1)}
+.opt input:focus-visible + span{outline:2px solid var(--gold);outline-offset:2px}
+.consent{display:flex;gap:10px;align-items:flex-start;font-size:.76rem;color:var(--slate);line-height:1.45}
+.consent input{margin-top:3px;accent-color:var(--gold);width:16px;height:16px;flex-shrink:0}
+.consent a{color:var(--gold-light)}
+.form-err{margin:0;font-size:.82rem;color:var(--danger-text);border-left:3px solid var(--danger);padding:8px 10px;background:rgba(212,97,75,.12);border-radius:6px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:1px solid var(--rule);background:var(--panel-2);color:var(--paper);border-radius:var(--r-sm);padding:13px 18px;font:600 .9rem var(--sans);letter-spacing:.02em;cursor:pointer;text-decoration:none;transition:opacity .15s,transform .1s,border-color .15s}
+.btn svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.btn:active{transform:scale(.98)}
+.btn-primary{background:var(--gold);border-color:var(--gold);color:var(--ink);box-shadow:0 6px 18px rgba(201,162,39,.2)}
+.btn-primary:hover{opacity:.92}
+.btn-block{width:100%}
+.btn[disabled]{opacity:.55;cursor:wait}
+.note{margin:0;font-size:.76rem;font-style:italic;color:var(--slate);display:flex;gap:8px;align-items:center}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0}
+.ok{padding:30px 22px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:10px}
+.ok[hidden],.form-err[hidden],.demo[hidden]{display:none}
+.ok h2{font:600 1.35rem var(--serif);margin:6px 0 0}
+.ok p{margin:0;color:var(--slate)}
+.ok-when{color:var(--gold-light)!important;font-size:.95rem}
+.ok-ico{width:52px;height:52px;border-radius:50%;background:rgba(61,153,112,.15);border:1px solid var(--ok);display:grid;place-items:center}
+.ok-ico svg{width:26px;height:26px;fill:none;stroke:var(--ok-text);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.demo{font-size:.74rem!important;color:var(--danger-text)!important;border:1px dashed var(--danger);padding:6px 10px;border-radius:6px}
+
+/* Secciones */
+.sec{padding:58px 0}
+.paper{background:var(--paper);color:var(--ink)}
+.paper em{color:var(--gold-text-lt)}
+.ink2{background:var(--ink-2);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.paper p{color:#2A3342}
+
+/* Dolor + solución híbrida */
+.pairs{display:flex;flex-direction:column;gap:14px}
+.pairs-head{display:none}
+.pair{background:#fff;border:1px solid #DDD8CC;border-radius:var(--r);padding:18px;box-shadow:0 1px 2px rgba(10,14,20,.08);display:grid;gap:12px;position:relative}
+.pair::before{content:'';position:absolute;top:0;left:18px;width:26px;height:2px;background:var(--gold)}
+.pair-pain{font:600 1.08rem/1.3 var(--serif);margin:6px 0 0;color:var(--ink)}
+.pair p{margin:0;font-size:.9rem;color:#2A3342;display:flex;flex-direction:column;gap:4px}
+.pair .tag{align-self:flex-start;font:600 .6rem var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--gold-text-lt);background:rgba(201,162,39,.14);border-radius:999px;padding:3px 9px}
+.pair .tag-ia{color:#fff;background:var(--ink)}
+
+/* Sinergia */
+.trio{display:grid;gap:12px;margin:26px 0 34px}
+.card-lt{background:#fff;border:1px solid #DDD8CC;border-radius:var(--r);padding:18px;box-shadow:0 1px 2px rgba(10,14,20,.08)}
+.card-lt h3{font:600 1.05rem var(--serif);margin:0 0 6px;color:var(--ink)}
+.card-lt p{margin:0;font-size:.92rem;color:#4A5568}
+.card-lt.win{background:var(--ink);border-color:var(--ink)}
+.card-lt.win h3{color:var(--gold-light)}
+.card-lt.win p{color:var(--paper)}
+.dark{color:var(--ink)}
+.measure{list-style:none;margin:14px 0 24px;padding:0;border:1px solid #DDD8CC;border-radius:var(--r);background:#fff;overflow:hidden}
+.measure li{display:flex;flex-direction:column;gap:2px;padding:13px 16px;border-bottom:1px solid #E8E4DA}
+.measure li:last-child{border-bottom:0}
+.measure b{font:600 .95rem var(--sans);color:var(--ink)}
+.measure span{font-size:.88rem;color:#4A5568}
+.quote{font:500 clamp(1.05rem,4vw,1.3rem)/1.4 var(--serif);border-left:3px solid var(--gold);padding-left:14px;margin:0;color:var(--ink)!important}
+
+/* Video + agenda */
+.video{margin-bottom:34px}
+.video[hidden]{display:none}
+.video-poster,.video iframe{display:block;width:100%;aspect-ratio:var(--video-ratio,16/9);border:1px solid var(--rule);border-radius:var(--r);background:radial-gradient(400px 200px at 50% 40%,rgba(201,162,39,.14),transparent 70%),var(--panel)}
+.video-poster{position:relative;cursor:pointer;color:var(--paper);font:inherit;padding:0;display:grid;place-items:center}
+.play{width:68px;height:68px;border-radius:50%;background:var(--gold);display:grid;place-items:center;box-shadow:0 8px 24px rgba(201,162,39,.3)}
+.play svg{width:26px;height:26px;fill:var(--ink);margin-left:3px}
+.video-cap{position:absolute;left:16px;right:16px;bottom:14px;text-align:left;font-size:.82rem;color:var(--slate)}
+.video-cap b{display:block;color:var(--paper);font:600 .95rem var(--serif)}
+.agenda{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
+.agenda li{display:flex;gap:14px;align-items:baseline;padding:13px 16px;background:var(--panel);border:1px solid var(--rule);border-left:3px solid var(--gold);border-radius:var(--r-sm);font-size:.97rem}
+.agenda li span{font-size:.7rem;letter-spacing:.14em;color:var(--gold);flex-shrink:0}
+
+/* Método */
+.method{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.method li{background:var(--panel);border:1px solid var(--rule);border-radius:var(--r);padding:18px;position:relative}
+.method li>span{font-size:.7rem;letter-spacing:.14em;color:var(--gold)}
+.method h3{font:600 1.05rem var(--serif);margin:4px 0 6px}
+.method p{margin:0 0 12px;font-size:.9rem;color:var(--slate)}
+.mt{font:600 .6rem var(--sans);font-style:normal;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-light);border:1px solid rgba(201,162,39,.4);border-radius:999px;padding:3px 9px}
+.mt-both{background:rgba(201,162,39,.16)}
+.mt-ia{color:var(--ink);background:var(--gold);border-color:var(--gold)}
+
+/* Quiénes somos */
+.principles{display:grid;gap:12px;margin-bottom:22px}
+.principles div{border-left:3px solid var(--gold);padding:4px 0 4px 14px}
+.principles h3{font:600 1.05rem var(--serif);margin:0 0 3px;color:var(--ink)}
+.principles p{margin:0;font-size:.92rem}
+.todo-note,.proof-item.todo{display:none}
+.preview .proof-item.todo{display:flex}
+.preview .todo-note{display:block}
+.proof-item.todo{border-style:dashed}
+.todo-note{margin:8px 0 0!important;font-size:.76rem!important;font-style:italic;color:var(--danger-text)!important}
+
+/* Cómo funciona */
+.how-t{margin:30px 0 14px}
+.how{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.how li{display:flex;gap:14px;align-items:flex-start;background:var(--panel);border:1px solid var(--rule);border-radius:var(--r-sm);padding:13px 16px}
+.how li>span{width:30px;height:30px;border-radius:7px;background:var(--ink);color:var(--gold-light);display:grid;place-items:center;font-size:.9rem;flex-shrink:0;border:1px solid var(--rule)}
+.how b{display:block;font:600 .95rem var(--sans)}
+.how small{color:var(--slate);font-size:.82rem}
+
+/* Manifiesto: da renombre a "Seamos rentables" */
+.manifesto{background:radial-gradient(600px 300px at 50% 0,rgba(201,162,39,.16),transparent 70%),var(--ink);padding:78px 0;border-bottom:1px solid var(--rule)}
+.mf-kicker{font:600 .64rem var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--slate);margin:0 0 18px}
+.mf-big{font:600 clamp(1.7rem,7vw,3rem)/1.18 var(--serif);letter-spacing:-.015em;margin:0 0 22px}
+.mf-big span{color:var(--gold)}
+.mf-formula{font:500 .8rem var(--mono);color:var(--slate);margin:0 0 24px;letter-spacing:.02em}
+.rule{display:block;width:46px;height:2px;background:var(--gold);margin:0 auto}
+
+/* Quiénes */
+.proof{display:grid;gap:12px;margin-bottom:26px}
+.proof-item{background:#fff;border:1px solid #DDD8CC;border-radius:var(--r);padding:16px 18px;display:flex;flex-direction:column;gap:4px;position:relative}
+.proof-item::before{content:'';position:absolute;top:0;left:18px;width:26px;height:2px;background:var(--gold)}
+.proof-item b{font:500 1.9rem/1.1 var(--mono);letter-spacing:-.02em;color:var(--ink)}
+.proof-item span{font-size:.9rem;color:#4A5568}
+.person{display:flex;gap:16px;align-items:center;background:var(--ink);color:var(--paper);border-radius:var(--r);padding:16px}
+.person-ph{width:76px;height:76px;border-radius:10px;border:1px solid var(--rule);background:var(--panel);display:grid;place-items:center;flex-shrink:0}
+.person-ph img{width:auto;height:48px}
+.person h3{font:600 1.1rem var(--serif);margin:0 0 4px}
+.person p{margin:0;font-size:.88rem;color:var(--slate)!important}
+
+/* Para ti */
+.fit{border:1px solid var(--rule);border-radius:var(--r);padding:20px;margin-bottom:14px}
+.fit h3{font:600 1.1rem var(--serif);margin:0 0 12px}
+.fit ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px}
+.fit li{position:relative;padding-left:28px;font-size:.95rem}
+.fit li::before{content:'';position:absolute;left:0;top:3px;width:17px;height:17px;border-radius:50%;border:1px solid}
+.fit.yes{background:var(--panel);border-left:3px solid var(--ok)}
+.fit.yes li::before{border-color:var(--ok);background:rgba(61,153,112,.18)}
+.fit.yes li::after{content:'';position:absolute;left:6px;top:6px;width:5px;height:9px;border:solid var(--ok-text);border-width:0 2px 2px 0;transform:rotate(45deg) scale(.8);transform-origin:center}
+.fit.no{background:var(--ink);border-left:3px solid var(--danger)}
+.fit.no li{color:var(--slate)}
+.fit.no li::before{border-color:var(--danger);background:rgba(212,97,75,.14)}
+.fit.no li::after{content:'×';position:absolute;left:4.5px;top:0;color:var(--danger-text);font-size:1rem;line-height:1.35}
+
+/* Flujo */
+.flow li{display:flex;gap:16px;align-items:flex-start}
+.flow li>span{width:38px;height:38px;border-radius:8px;background:var(--ink);color:var(--gold-light);display:grid;place-items:center;font:500 1.1rem var(--mono);flex-shrink:0}
+.flow h3{color:var(--ink);margin-top:6px}
+.flow p{margin:0;font-size:.93rem;color:#4A5568}
+
+/* Final */
+.final{background:radial-gradient(700px 380px at 50% 110%,rgba(201,162,39,.16),transparent 70%),var(--ink)}
+.final .body-lg{color:var(--slate)}
+.final .body-lg b{color:var(--gold-light);font-weight:600}
+.form-card--alt{text-align:left;max-width:460px;margin:0 auto}
+
+/* Legal y pie */
+.legal p{font-size:.82rem;color:var(--slate);margin:0 0 10px}
+.legal .muted{color:var(--slate-dim);font-style:italic}
+.foot{background:var(--ink);padding:26px 0 30px}
+.foot-in{display:flex;flex-direction:column;gap:14px}
+.foot p{margin:0;font-size:.74rem;color:var(--slate-dim);max-width:70ch}
+
+/* Barra fija móvil */
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:40;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:linear-gradient(to top,var(--ink) 60%,rgba(10,14,20,0));transform:translateY(110%);transition:transform .25s}
+.sticky.show{transform:none}
+
+/* Escritorio */
+@media (min-width:860px){
+  .hh-body{padding-bottom:0}
+  .sticky{display:none}
+  .hero{padding:56px 0 70px}
+  .hero-grid{grid-template-columns:1.15fr .85fr;gap:48px;align-items:start}
+  .form-card{position:sticky;top:84px}
+  .trio,.principles,.proof{grid-template-columns:repeat(3,1fr)}
+  .method{grid-template-columns:repeat(4,1fr)}
+  .pairs{gap:0;border:1px solid #DDD8CC;border-radius:var(--r);background:#fff;overflow:hidden}
+  .pairs-head{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:24px;padding:12px 22px;background:var(--ink);color:var(--gold-light);font:600 .62rem var(--sans);letter-spacing:.14em;text-transform:uppercase}
+  .pair{grid-template-columns:1.1fr 1fr 1fr;gap:24px;align-items:start;border:0;border-bottom:1px solid #E8E4DA;border-radius:0;box-shadow:none;padding:20px 22px}
+  .pair:last-child{border-bottom:0}
+  .pair::before{display:none}
+  .pair-pain{margin:0}
+  .sec{padding:80px 0}
+  .foot-in{flex-direction:row;justify-content:space-between;align-items:center}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+.iso{display:block;flex-shrink:0}.brand .iso{height:34px;width:31px}.foot .brand .iso{height:28px;width:25.5px}.person-ph .iso{height:48px;width:43.7px}
+</style>
+</head>
+<body class="hh-body">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="hh-iso" viewBox="-8 -8 242 266"><defs><clipPath id="clipAB1"><rect x="171.32" y="78" width="19.2" height="16"/></clipPath></defs><line x1="4" y1="233.5" x2="222" y2="233.5" stroke="#5B6578" stroke-width="3.4" stroke-linecap="round"/><rect x="10" y="106" width="18" height="126" fill="#ECE8DF"/><rect x="8" y="102.5" width="22" height="3" fill="#ECE8DF"/><rect x="62" y="106" width="18" height="126" fill="#ECE8DF"/><rect x="60" y="102.5" width="22" height="3" fill="#ECE8DF"/><rect x="27.5" y="160" width="35" height="18" fill="#ECE8DF"/><rect x="142" y="106" width="18" height="126" fill="none" stroke="#ECE8DF" stroke-opacity="0.42" stroke-width="2.66"/><rect x="142" y="132" width="18" height="100" fill="#ECE8DF"/><rect x="194" y="106" width="18" height="126" fill="none" stroke="#ECE8DF" stroke-opacity="0.42" stroke-width="2.66"/><rect x="194" y="152" width="18" height="80" fill="#ECE8DF"/><rect x="159.5" y="160" width="35" height="18" fill="#ECE8DF"/><rect x="160" y="106" width="34" height="32" fill="none" stroke="#ECE8DF" stroke-opacity="0.42" stroke-width="2.47" stroke-dasharray="5.7 4.94"/><line x1="102" y1="30" x2="102" y2="232" stroke="#8A93A6" stroke-width="3.2" stroke-linecap="round"/><line x1="120" y1="30" x2="120" y2="232" stroke="#8A93A6" stroke-width="3.2" stroke-linecap="round"/><path d="M102 232 L120 202 L102 172 L120 142 L102 112 L120 82 L102 52" fill="none" stroke="#8A93A6" stroke-width="2.4" stroke-linejoin="round"/><line x1="111" y1="24" x2="214" y2="24" stroke="#8A93A6" stroke-width="3.2" stroke-linecap="round"/><line x1="111" y1="36" x2="214" y2="36" stroke="#8A93A6" stroke-width="3.2" stroke-linecap="round"/><path d="M111 24 L135 36 L159 24 L183 36 L207 24" fill="none" stroke="#8A93A6" stroke-width="2.4" stroke-linejoin="round"/><line x1="111" y1="24" x2="36" y2="24" stroke="#8A93A6" stroke-width="3.2" stroke-linecap="round"/><line x1="111" y1="36" x2="36" y2="36" stroke="#8A93A6" stroke-width="3.2" stroke-linecap="round"/><path d="M111 24 L87 36 L63 24 L39 36" fill="none" stroke="#8A93A6" stroke-width="2.4" stroke-linejoin="round"/><rect x="28" y="36" width="14" height="18" fill="#8A93A6"/><line x1="111" y1="4" x2="111" y2="24" stroke="#8A93A6" stroke-width="3.2" stroke-linecap="round"/><line x1="111" y1="4" x2="214" y2="24" stroke="#8A93A6" stroke-width="2.2" stroke-linecap="round"/><line x1="111" y1="4" x2="36" y2="24" stroke="#8A93A6" stroke-width="2.2" stroke-linecap="round"/><line x1="177" y1="36" x2="177" y2="53" stroke="#8A93A6" stroke-width="2.6" stroke-linecap="round"/><line x1="177" y1="53" x2="163" y2="70" stroke="#8A93A6" stroke-width="2.4" stroke-linecap="round"/><line x1="177" y1="53" x2="191" y2="70" stroke="#8A93A6" stroke-width="2.4" stroke-linecap="round"/><rect x="161" y="70" width="32" height="32" rx="1.5" fill="#C9A227"/><g fill="#0A0E14" stroke="#0A0E14"><rect x="165.48" y="78" width="4" height="16"/><g clip-path="url(#clipAB1)"><path d="M174.52 95 L180.92 78.4 L187.32 95 M177.42 89.2 L184.42 89.2" fill="none" stroke-width="3.68" stroke-linejoin="miter" stroke-miterlimit="10"/></g></g></symbol></svg>
+
+<header class="topbar">
+  <div class="wrap topbar-in">
+    <a class="brand" href="#top" aria-label="Human Holding Colombia">
+      <svg class="iso" width="34" height="37" aria-hidden="true"><use href="#hh-iso"/></svg>
+      <span><b>Human Holding</b><i>Colombia</i></span>
+    </a>
+    <span class="topbar-tag">Webinar gratuito</span>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- 1. HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="wordmark" aria-label="Seamos rentables">SEAMOS<br><span>RENTABLES.</span></p>
+      <p class="desert">Para el empresario y el emprendedor que quiere sacar a su empresa del desierto.</p>
+      <h1 id="h1" data-a="Tu negocio vende, pero la plata no se queda." data-b="Vender más no es ganar más.">Tu negocio vende, pero la plata no se queda.</h1>
+      <p class="lead">Todo depende de ti, los procesos no están claros y no sabes dónde se escapa el dinero. Te lo mostramos en un webinar gratuito, y cómo se arregla con ingeniería aplicada + IA.</p>
+      <p class="formula"><span>Ingeniería aplicada</span> <i>+</i> <span>IA</span> <i>=</i> <b>Empresas sólidas y rentables</b></p>
+
+      <div class="when" aria-live="polite">
+        <div class="when-line">
+          <span class="when-lbl">Próximo webinar gratuito</span>
+          <b id="webinarFecha" class="mono">—</b>
+        </div>
+        <div class="count mono" id="countdown" role="timer" aria-label="Tiempo restante para el webinar">
+          <div><b data-u="d">--</b><span>días</span></div><i>:</i>
+          <div><b data-u="h">--</b><span>horas</span></div><i>:</i>
+          <div><b data-u="m">--</b><span>min</span></div><i>:</i>
+          <div><b data-u="s">--</b><span>seg</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card form-card" id="registro">
+      <div class="card-hdr">Reserva tu lugar</div>
+      <form class="reg-form" novalidate>
+        <div class="field">
+          <label class="label" for="nombre1">Nombre completo</label>
+          <input class="input" id="nombre1" name="nombre" autocomplete="name" required placeholder="Tu nombre">
+        </div>
+        <div class="field">
+          <label class="label" for="correo1">Correo electrónico</label>
+          <input class="input" id="correo1" name="correo" type="email" autocomplete="email" inputmode="email" required placeholder="tu@correo.com">
+        </div>
+        <div class="field">
+          <label class="label" for="tel1">WhatsApp</label>
+          <div class="phone">
+            <select class="select" name="pais" aria-label="Indicativo del país">
+              <option value="57" selected>CO +57</option><option value="52">MX +52</option><option value="51">PE +51</option>
+              <option value="54">AR +54</option><option value="56">CL +56</option><option value="593">EC +593</option>
+              <option value="507">PA +507</option><option value="506">CR +506</option><option value="55">BR +55</option><option value="1">US +1</option>
+            </select>
+            <input class="input" id="tel1" name="telefono" type="tel" autocomplete="tel-national" inputmode="tel" required placeholder="300 000 0000">
+          </div>
+        </div>
+        <fieldset class="field perfil">
+          <legend class="label">¿Cuál te describe mejor?</legend>
+          <label class="opt"><input type="radio" name="perfil" value="emprendedor" required>
+            <span><b>Emprendedor</b><small>Estoy construyendo mi negocio</small></span></label>
+          <label class="opt"><input type="radio" name="perfil" value="empresario" required>
+            <span><b>Empresario</b><small>Tengo una empresa en operación</small></span></label>
+        </fieldset>
+        <label class="consent"><input type="checkbox" name="consentimiento" required>
+          <span>Autorizo el tratamiento de mis datos para recibir información del webinar. <a href="#privacidad">Política de datos</a>.</span></label>
+        <p class="form-err" role="alert" hidden></p>
+        <button class="btn btn-primary btn-block" type="submit"><span class="btn-txt">Reservar mi cupo gratis</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        <p class="note"><i class="dot"></i>Gratuito. Cupos limitados: cuando se llenen, el formulario cierra.</p>
+      </form>
+      <div class="ok" hidden>
+        <div class="ok-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+        <h2>Listo, tu cupo está reservado.</h2>
+        <p class="ok-when mono"></p>
+        <p>Te enviaremos el enlace de acceso por <b>correo y WhatsApp</b>. Guarda la fecha en tu calendario:</p>
+        <a class="btn btn-primary" id="addCal" target="_blank" rel="noopener">Agregar al calendario</a>
+        <p class="demo" hidden>Modo prueba: este registro no se guardó (falta conectar Supabase).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. DOLOR + SOLUCIÓN HÍBRIDA -->
+<section class="sec paper">
+  <div class="wrap">
+    <p class="eyebrow dark">Lo que vive tu negocio y cómo se resuelve</p>
+    <h2 class="h-lg">Cada dolor tiene una causa. Y cada causa, una solución diseñada.</h2>
+    <div class="pairs">
+      <div class="pairs-head" aria-hidden="true"><span>Lo que vive tu negocio</span><span>Ingeniería aplicada</span><span>IA</span></div>
+
+      <article class="pair">
+        <h3 class="pair-pain">Vende, pero la plata no se queda.</h3>
+        <p class="pair-eng"><b class="tag">Ingeniería</b>Radiografía financiera: tu margen y tu costo reales.</p>
+        <p class="pair-ia"><b class="tag tag-ia">IA</b>Tablero que mide y avisa dónde se escapa el dinero.</p>
+      </article>
+      <article class="pair">
+        <h3 class="pair-pain">No sabes cuánto ganas por cada producto.</h3>
+        <p class="pair-eng"><b class="tag">Ingeniería</b>Estructura de precios con tus costos reales.</p>
+        <p class="pair-ia"><b class="tag tag-ia">IA</b>Simulación de precios con tus propios datos.</p>
+      </article>
+      <article class="pair">
+        <h3 class="pair-pain">Todo depende de ti y los procesos no están claros.</h3>
+        <p class="pair-eng"><b class="tag">Ingeniería</b>Procesos definidos y mapa de cuellos de botella.</p>
+        <p class="pair-ia"><b class="tag tag-ia">IA</b>Agentes que ejecutan lo que ya está ordenado.</p>
+      </article>
+      <article class="pair">
+        <h3 class="pair-pain">Los clientes que llegan se pierden.</h3>
+        <p class="pair-eng"><b class="tag">Ingeniería</b>Proceso de atención y seguimiento.</p>
+        <p class="pair-ia"><b class="tag tag-ia">IA</b>Agente de atención y CRM que no deja caer a nadie.</p>
+      </article>
+      <article class="pair">
+        <h3 class="pair-pain">Quieres escalar sin saber si tu negocio aguanta.</h3>
+        <p class="pair-eng"><b class="tag">Ingeniería</b>Prueba de escala: qué se rompe primero.</p>
+        <p class="pair-ia"><b class="tag tag-ia">IA</b>Ecosistema de contenido, pauta y ventas sobre una base ordenada.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 3. VIDEO + AGENDA -->
+<section class="sec ink2" id="agenda">
+  <div class="wrap narrow">
+    <div class="video" id="video" hidden>
+      <button class="video-poster" type="button" id="videoPlay" aria-label="Reproducir video de Elking Aspricha">
+        <span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg></span>
+        <span class="video-cap"><b>Elking Aspricha</b>Por qué vender más no es ganar más</span>
+      </button>
+      <p class="todo-note">[Pendiente: video de Elking. Se activa con VIDEO_YOUTUBE_ID en config.js]</p>
+    </div>
+    <p class="eyebrow">Qué verás en el webinar</p>
+    <h2 class="h-lg">Cinco cosas que te llevas</h2>
+    <ol class="agenda">
+      <li><span class="mono">01</span>Dónde se escapa la plata en una empresa que vende.</li>
+      <li><span class="mono">02</span>Cómo leer tu propio negocio: margen, precio y costo real.</li>
+      <li><span class="mono">03</span>Qué hace la ingeniería, qué hace la IA y por qué una sin la otra no funciona.</li>
+      <li><span class="mono">04</span>Cómo se ve un ecosistema híbrido funcionando, con casos propios.</li>
+      <li><span class="mono">05</span>Qué sigue: la radiografía de tu caso.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- 4. SINERGIA + QUÉ MEDIMOS -->
+<section class="sec paper">
+  <div class="wrap narrow">
+    <h2 class="h-xl">La IA sola no te soluciona nada. La ingeniería sola <em>tampoco te escala.</em></h2>
+    <div class="trio">
+      <article class="card-lt"><h3>Solo IA</h3><p>Acelera el desorden. Un agente sobre un proceso roto automatiza el error.</p></article>
+      <article class="card-lt"><h3>Solo ingeniería</h3><p>Ordena, pero se queda lenta y no escala al ritmo que hoy exige el mercado.</p></article>
+      <article class="card-lt win"><h3>Las dos juntas</h3><p>Una operación clara que se ejecuta, se mide y crece.</p></article>
+    </div>
+
+    <h3 class="h-sm dark">Qué medimos, y para qué</h3>
+    <ul class="measure">
+      <li><b>Margen por producto o servicio</b><span>Decides qué vender más y qué dejar.</span></li>
+      <li><b>Costo real de cada operación</b><span>Decides qué arreglar primero.</span></li>
+      <li><b>Tiempos y cuellos de botella</b><span>Decides dónde invertir.</span></li>
+      <li><b>Costo de conseguir un cliente</b><span>Decides si pautar te conviene.</span></li>
+      <li><b>Recompra y atención</b><span>Decides cómo retener a los que ya tienes.</span></li>
+    </ul>
+    <p class="quote">De nada sirve traer más clientes, ni con la mejor IA, a un negocio que no atiende bien a los que ya llegan solos.</p>
+  </div>
+</section>
+
+<!-- 5. MÉTODO -->
+<section class="sec ink2">
+  <div class="wrap">
+    <p class="eyebrow">El método híbrido</p>
+    <h2 class="h-lg">Primero se entiende. Después se diseña. Al final se escala.</h2>
+    <ol class="method">
+      <li><span class="mono">1</span><h3>Radiografía</h3><p>Qué pasa de verdad en tu empresa.</p><em class="mt">Ingeniería</em></li>
+      <li><span class="mono">2</span><h3>Causa raíz</h3><p>Qué parte de la operación te impide ser rentable.</p><em class="mt">Ingeniería</em></li>
+      <li><span class="mono">3</span><h3>Diseño del ecosistema</h3><p>Procesos limpios más IA diseñada para cada necesidad, no instalada por moda.</p><em class="mt mt-both">Ingeniería + IA</em></li>
+      <li><span class="mono">4</span><h3>Implementación y escala</h3><p>El ecosistema trabaja y tú lo mides.</p><em class="mt mt-ia">IA sobre estructura</em></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 6. QUIÉNES SOMOS -->
+<section class="sec paper" id="quienes">
+  <div class="wrap narrow">
+    <p class="eyebrow dark">Quiénes somos</p>
+    <h2 class="h-lg">No solo vendemos IA. Aplicamos ingeniería a tu negocio para crear un ecosistema que te haga rentable.</h2>
+    <p class="body-lg">Hoy cualquiera te vende un agente de IA. Casi nadie revisa primero si tu negocio está listo para usarlo. Nosotros hacemos las dos cosas, y en ese orden.</p>
+    <div class="principles">
+      <div><h3>Ingeniería primero</h3><p>Estructura, criterio y números antes que cualquier herramienta.</p></div>
+      <div><h3>IA quirúrgica</h3><p>Entra donde el diagnóstico la justifica, diseñada para esa necesidad.</p></div>
+      <div><h3>Una sola sinergia</h3><p>Un ecosistema híbrido que te hace sólido y rentable.</p></div>
+    </div>
+    <div class="proof">
+      <div class="proof-item"><b class="mono">+2.000</b><span>menús vendidos en 2 meses con Santa Elena Lunch365</span></div>
+      <div class="proof-item"><b class="mono">2</b><span>negocios propios: Lunch365 y Natural &amp; Orgánico. Antes de llevarlo a otros, lo aplicamos en casa.</span></div>
+      <div class="proof-item todo"><b class="mono">—</b><span>[Pendiente: caso real con cifra, como una fuga encontrada o un margen corregido]</span></div>
+    </div>
+    <div class="person">
+      <div class="person-ph" aria-hidden="true"><svg class="iso" width="56" height="62" aria-hidden="true"><use href="#hh-iso"/></svg></div>
+      <div>
+        <h3>Elking Aspricha</h3>
+        <p>CEO y fundador de Human Holding Colombia. Arquitectura del ecosistema y estrategia comercial.</p>
+        <p class="todo-note">[Pendiente: 2 o 3 credenciales verificables]</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. ¿ES PARA TI? + CÓMO FUNCIONA -->
+<section class="sec ink2">
+  <div class="wrap narrow">
+    <h2 class="h-lg">¿Es para ti?</h2>
+    <div class="fit yes">
+      <h3>Este webinar es para ti si…</h3>
+      <ul>
+        <li><b>Empresario:</b> tu negocio factura, pero no sabes cuánto ganas por producto y todo pasa por ti.</li>
+        <li><b>Empresario:</b> quieres crecer y estar a la vanguardia con IA, pero con criterio.</li>
+        <li><b>Emprendedor:</b> estás construyendo tu negocio y quieres que nazca rentable.</li>
+      </ul>
+    </div>
+    <div class="fit no">
+      <h3>No es para ti si…</h3>
+      <ul>
+        <li>Buscas que una IA reemplace a tu equipo.</li>
+        <li>Quieres instalar un agente sin revisar tu operación.</li>
+        <li>No estás dispuesto a mirar tus números.</li>
+        <li>Aún no tienes negocio ni una idea que llevar a la práctica.</li>
+      </ul>
+    </div>
+
+    <h3 class="h-sm how-t">Así funciona</h3>
+    <ol class="how">
+      <li><span class="mono">1</span><div><b>Webinar gratuito</b><small>Uno cada 15 días.</small></div></li>
+      <li><span class="mono">2</span><div><b>Grupo privado de WhatsApp</b><small>Después del webinar, solo para quien quiera seguir.</small></div></li>
+      <li><span class="mono">3</span><div><b>Consultoría para tu caso</b><small>La radiografía de tu empresa.</small></div></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 8. MANIFIESTO + CIERRE -->
+<section class="sec manifesto">
+  <div class="wrap narrow center">
+    <p class="mf-kicker">Seamos rentables</p>
+    <p class="mf-big">Después de <span>SEAMOS RENTABLES</span>, nunca volverás a creer que vender más es ganar más.</p>
+    <p class="mf-formula">Ingeniería aplicada + IA = Empresas sólidas y rentables</p>
+    <span class="rule" aria-hidden="true"></span>
+  </div>
+</section>
+
+<section class="sec final">
+  <div class="wrap narrow center">
+    <h2 class="h-lg">Si vendes y no te queda, no necesitas más ventas. Necesitas ver dónde se escapa.</h2>
+    <p class="body-lg">Reserva tu cupo. <b id="finalFecha"></b></p>
+    <div class="card form-card form-card--alt" id="registro2">
+      <form class="reg-form" novalidate>
+        <div class="field"><label class="label" for="nombre2">Nombre completo</label>
+          <input class="input" id="nombre2" name="nombre" autocomplete="name" required placeholder="Tu nombre"></div>
+        <div class="field"><label class="label" for="correo2">Correo electrónico</label>
+          <input class="input" id="correo2" name="correo" type="email" autocomplete="email" inputmode="email" required placeholder="tu@correo.com"></div>
+        <div class="field"><label class="label" for="tel2">WhatsApp</label>
+          <div class="phone">
+            <select class="select" name="pais" aria-label="Indicativo del país">
+              <option value="57" selected>CO +57</option><option value="52">MX +52</option><option value="51">PE +51</option>
+              <option value="54">AR +54</option><option value="56">CL +56</option><option value="593">EC +593</option>
+              <option value="507">PA +507</option><option value="506">CR +506</option><option value="55">BR +55</option><option value="1">US +1</option>
+            </select>
+            <input class="input" id="tel2" name="telefono" type="tel" autocomplete="tel-national" inputmode="tel" required placeholder="300 000 0000">
+          </div></div>
+        <fieldset class="field perfil"><legend class="label">¿Cuál te describe mejor?</legend>
+          <label class="opt"><input type="radio" name="perfil" value="emprendedor" required><span><b>Emprendedor</b><small>Estoy construyendo mi negocio</small></span></label>
+          <label class="opt"><input type="radio" name="perfil" value="empresario" required><span><b>Empresario</b><small>Tengo una empresa en operación</small></span></label>
+        </fieldset>
+        <label class="consent"><input type="checkbox" name="consentimiento" required>
+          <span>Autorizo el tratamiento de mis datos para recibir información del webinar. <a href="#privacidad">Política de datos</a>.</span></label>
+        <p class="form-err" role="alert" hidden></p>
+        <button class="btn btn-primary btn-block" type="submit"><span class="btn-txt">Reservar mi cupo gratis</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        <p class="note"><i class="dot"></i>Gratuito. Cupos limitados.</p>
+      </form>
+      <div class="ok" hidden>
+        <div class="ok-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+        <h2>Listo, tu cupo está reservado.</h2>
+        <p class="ok-when mono"></p>
+        <p>Te enviaremos el enlace por <b>correo y WhatsApp</b>.</p>
+        <p class="demo" hidden>Modo prueba: este registro no se guardó (falta conectar Supabase).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- POLÍTICA DE DATOS (borrador: validar con abogado) -->
+<section class="sec ink2 legal" id="privacidad">
+  <div class="wrap narrow">
+    <h2 class="h-sm">Política de tratamiento de datos</h2>
+    <p>Human Holding Colombia (persona natural con establecimiento de comercio, Neiva, Huila) recolecta tu nombre, correo, WhatsApp y perfil (emprendedor o empresario) con la finalidad de registrarte al webinar, enviarte el enlace y recordatorios, y contactarte con información relacionada con nuestros servicios. Conforme a la Ley 1581 de 2012, puedes conocer, actualizar, rectificar o solicitar la supresión de tus datos escribiéndonos al correo de contacto o por WhatsApp. No vendemos tus datos a terceros.</p>
+    <p class="muted">[Pendiente: correo de contacto oficial y datos del titular (nombre y cédula o NIT).]</p>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <div class="brand"><svg class="iso" width="28" height="31" aria-hidden="true"><use href="#hh-iso"/></svg><span><b>Human Holding</b><i>Colombia</i></span></div>
+    <p>© <span id="year"></span> Human Holding Colombia · Seamos Rentables. Los resultados dependen de la implementación y de las condiciones de cada negocio. No prometemos resultados garantizados.</p>
+  </div>
+</footer>
+
+<div class="sticky" id="sticky" aria-hidden="true">
+  <a class="btn btn-primary btn-block" href="#registro">Reservar mi cupo gratis
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+</div>
+
+<script>
+/* Configuración de la landing "Seamos Rentables".
+   Todo lo marcado como PENDIENTE se llena sin tocar app.js. */
+window.HH_CONFIG = {
+  // Webinar quincenal (2 al mes). Fecha de un webinar real; los siguientes salen
+  // automáticamente cada CYCLE_DAYS días. PENDIENTE: confirmar la fecha real del primero.
+  WEBINAR_ANCHOR: '2026-10-27T19:00:00-05:00', // 19:00 hora Colombia
+  CYCLE_DAYS: 15,
+  DURATION_MIN: 60,
+  WEBINAR_TITLE: 'Seamos Rentables — Webinar Human Holding Colombia',
+
+  // Video de Elking (YouTube sin listar). PENDIENTE: pegar el ID (lo que va después de v=).
+  // Mientras esté vacío, el bloque de video no se muestra (se ve con ?preview=1).
+  VIDEO_YOUTUBE_ID: '',
+  VIDEO_ASPECT: '16 / 9', // '4 / 5' o '9 / 16' si el video es vertical
+
+  // Meta Pixel. PENDIENTE: ID del Pixel (se crea con la cuenta de Meta Business, capítulo 2.1).
+  META_PIXEL_ID: '',
+
+  // Destino de los leads (Supabase del CRM, capítulo 2.2). PENDIENTE.
+  // Tabla esperada: ver supabase/leads_webinar.sql. Usar SOLO la anon key (nunca la service key).
+  SUPABASE_URL: '',
+  SUPABASE_ANON_KEY: '',
+  SUPABASE_TABLE: 'leads_webinar'
+};
+</script>
+<script>
+(function () {
+  'use strict';
+  var C = window.HH_CONFIG || {};
+  var MIN = 60000, DAY = 86400000;
+
+  /* ---------- Próximo webinar (cada CYCLE_DAYS días) ---------- */
+  function nextWebinar(now) {
+    var anchor = new Date(C.WEBINAR_ANCHOR).getTime();
+    var dur = (C.DURATION_MIN || 60) * MIN;
+    var cycle = (C.CYCLE_DAYS || 15) * DAY;
+    if (now < anchor + dur) return anchor;
+    return anchor + (Math.floor((now - anchor - dur) / cycle) + 1) * cycle;
+  }
+  function fmtFecha(ts) {
+    var d = new Date(ts);
+    var dia = d.toLocaleDateString('es-CO', { weekday: 'long', day: 'numeric', month: 'long', timeZone: 'America/Bogota' });
+    var hora = d.toLocaleTimeString('es-CO', { hour: 'numeric', minute: '2-digit', hour12: true, timeZone: 'America/Bogota' });
+    return dia.charAt(0).toUpperCase() + dia.slice(1) + ' · ' + hora + ' (hora Colombia)';
+  }
+  function gcalDate(ts) { return new Date(ts).toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, ''); }
+
+  var target = nextWebinar(Date.now());
+  var el = {
+    fecha: document.getElementById('webinarFecha'),
+    final: document.getElementById('finalFecha'),
+    count: document.getElementById('countdown')
+  };
+  function paintFecha() {
+    var t = fmtFecha(target);
+    if (el.fecha) el.fecha.textContent = t;
+    if (el.final) el.final.textContent = t + '.';
+  }
+  function pad(n) { return n < 10 ? '0' + n : '' + n; }
+  function tick() {
+    var left = target - Date.now();
+    if (left <= -(C.DURATION_MIN || 60) * MIN) { target = nextWebinar(Date.now()); paintFecha(); left = target - Date.now(); }
+    if (left < 0) left = 0;
+    var s = Math.floor(left / 1000);
+    var v = { d: Math.floor(s / 86400), h: Math.floor(s % 86400 / 3600), m: Math.floor(s % 3600 / 60), s: s % 60 };
+    for (var k in v) {
+      var n = el.count && el.count.querySelector('[data-u="' + k + '"]');
+      if (n) n.textContent = pad(v[k]);
+    }
+  }
+  paintFecha(); tick(); setInterval(tick, 1000);
+
+  /* ---------- Variante de titular (prueba A/B) y modo vista previa ----------
+     Enlace del anuncio: ?v=a o ?v=b  ·  Vista previa de pendientes: ?preview=1 */
+  var params = new URLSearchParams(location.search);
+  var variant = (params.get('v') || '').toLowerCase();
+  try { if (variant !== 'a' && variant !== 'b') variant = sessionStorage.getItem('hh_v') || 'a'; sessionStorage.setItem('hh_v', variant); } catch (e) { if (variant !== 'b') variant = 'a'; }
+  var h1 = document.getElementById('h1');
+  if (h1 && h1.getAttribute('data-' + variant)) h1.textContent = h1.getAttribute('data-' + variant);
+  var preview = params.get('preview') === '1';
+  if (preview) document.documentElement.classList.add('preview');
+
+  /* ---------- Video (se activa con VIDEO_YOUTUBE_ID) ---------- */
+  var vid = document.getElementById('video'), play = document.getElementById('videoPlay');
+  if (vid) {
+    if (C.VIDEO_ASPECT) vid.style.setProperty('--video-ratio', C.VIDEO_ASPECT);
+    if (C.VIDEO_YOUTUBE_ID || preview) vid.hidden = false;
+    if (play && C.VIDEO_YOUTUBE_ID) {
+      vid.classList.add('has-video');
+      play.addEventListener('click', function () {
+        var f = document.createElement('iframe');
+        f.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(C.VIDEO_YOUTUBE_ID) + '?autoplay=1&rel=0&modestbranding=1';
+        f.allow = 'autoplay; encrypted-media; picture-in-picture'; f.allowFullscreen = true; f.title = 'Video de Elking Aspricha';
+        play.replaceWith(f);
+        track('ViewContent', { content_name: 'Video webinar', content_category: variant });
+      });
+    }
+  }
+
+  /* ---------- Atribución de pauta (UTM + fbclid + cookies de Meta) ---------- */
+  var KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'utm_id', 'cid', 'fbclid'];
+  function readCookie(n) { var m = document.cookie.match('(?:^|; )' + n + '=([^;]*)'); return m ? decodeURIComponent(m[1]) : ''; }
+  function attribution() {
+    var out = {}, q = new URLSearchParams(location.search), saved = {};
+    try { saved = JSON.parse(sessionStorage.getItem('hh_attr') || '{}'); } catch (e) {}
+    KEYS.forEach(function (k) { var v = q.get(k); if (v) saved[k] = v.trim(); });
+    try { sessionStorage.setItem('hh_attr', JSON.stringify(saved)); } catch (e) {}
+    KEYS.forEach(function (k) { out[k] = saved[k] || null; });
+    out.fbp = readCookie('_fbp') || null;
+    out.fbc = readCookie('_fbc') || (saved.fbclid ? 'fb.1.' + Date.now() + '.' + saved.fbclid : null);
+    out.landing_url = location.origin + location.pathname;
+    return out;
+  }
+  attribution();
+
+  /* ---------- Meta Pixel (solo si hay ID) ---------- */
+  function track(ev, data, id) {
+    if (typeof window.fbq === 'function') window.fbq('track', ev, data || {}, id ? { eventID: id } : undefined);
+  }
+  if (C.META_PIXEL_ID) {
+    !function (f, b, e, v, n, t, s) { if (f.fbq) return; n = f.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments); };
+      if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0'; n.queue = []; t = b.createElement(e); t.async = !0; t.src = v;
+      s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s); }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+    window.fbq('init', C.META_PIXEL_ID);
+    window.fbq('track', 'PageView');
+    window.fbq('trackCustom', 'LandingVariant', { variante: variant });
+  }
+
+  /* ---------- Formularios ---------- */
+  function setErr(form, msg) { var p = form.querySelector('.form-err'); p.textContent = msg; p.hidden = !msg; }
+  function mark(node, bad) { if (node) node.classList.toggle('bad', !!bad); }
+
+  function validate(form) {
+    var f = form.elements, bad = null;
+    ['nombre', 'correo', 'telefono'].forEach(function (n) { mark(f[n], false); });
+    var nombre = f.nombre.value.trim();
+    var correo = f.correo.value.trim();
+    var tel = f.telefono.value.replace(/\D/g, '');
+    if (nombre.length < 3) { mark(f.nombre, true); bad = bad || 'Escribe tu nombre completo.'; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(correo)) { mark(f.correo, true); bad = bad || 'Revisa tu correo electrónico.'; }
+    if (tel.length < 7 || tel.length > 12) { mark(f.telefono, true); bad = bad || 'Revisa tu número de WhatsApp.'; }
+    if (!f.perfil.value) bad = bad || 'Elige si eres emprendedor o empresario.';
+    if (!f.consentimiento.checked) bad = bad || 'Debes autorizar el tratamiento de datos para continuar.';
+    return bad;
+  }
+
+  function save(payload) {
+    if (!C.SUPABASE_URL || !C.SUPABASE_ANON_KEY) return Promise.resolve({ demo: true });
+    return fetch(C.SUPABASE_URL.replace(/\/$/, '') + '/rest/v1/' + (C.SUPABASE_TABLE || 'leads_webinar'), {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', apikey: C.SUPABASE_ANON_KEY, Authorization: 'Bearer ' + C.SUPABASE_ANON_KEY, Prefer: 'return=minimal' },
+      body: JSON.stringify(payload)
+    }).then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return {}; });
+  }
+
+  function onSubmit(ev) {
+    ev.preventDefault();
+    var form = ev.currentTarget, btn = form.querySelector('button[type=submit]');
+    var msg = validate(form);
+    setErr(form, msg || '');
+    if (msg) return;
+
+    var f = form.elements, eventId = 'lead_' + Date.now() + '_' + Math.random().toString(36).slice(2, 8);
+    var payload = {
+      nombre: f.nombre.value.trim(),
+      correo: f.correo.value.trim().toLowerCase(),
+      whatsapp: '+' + f.pais.value + f.telefono.value.replace(/\D/g, ''),
+      perfil: f.perfil.value,
+      webinar_fecha: new Date(target).toISOString(),
+      consentimiento_datos: true,
+      variante_titular: variant,
+      event_id: eventId
+    };
+    var a = attribution(); for (var k in a) payload[k] = a[k];
+
+    btn.disabled = true;
+    var txt = btn.querySelector('.btn-txt'), old = txt.textContent; txt.textContent = 'Reservando…';
+    save(payload).then(function (res) {
+      track('Lead', { content_name: 'Webinar Seamos Rentables', status: payload.perfil, content_category: variant }, eventId);
+      track('CompleteRegistration', { content_name: 'Webinar Seamos Rentables' }, eventId + '_cr');
+      var card = form.closest('.card');
+      form.hidden = true;
+      var ok = card.querySelector('.ok'); ok.hidden = false;
+      ok.querySelector('.ok-when').textContent = fmtFecha(target);
+      if (res.demo) ok.querySelector('.demo').hidden = false;
+      var cal = ok.querySelector('#addCal');
+      if (cal) cal.href = 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=' + encodeURIComponent(C.WEBINAR_TITLE || 'Webinar') +
+        '&dates=' + gcalDate(target) + '/' + gcalDate(target + (C.DURATION_MIN || 60) * MIN) +
+        '&details=' + encodeURIComponent('El enlace de acceso llega por correo y WhatsApp.');
+      card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }).catch(function () {
+      setErr(form, 'No pudimos guardar tu registro. Intenta de nuevo en un momento.');
+      btn.disabled = false; txt.textContent = old;
+    });
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('.reg-form'), function (f) { f.addEventListener('submit', onSubmit); });
+
+  /* ---------- Barra fija móvil ---------- */
+  var sticky = document.getElementById('sticky');
+  var forms = ['registro', 'registro2'].map(function (i) { return document.getElementById(i); }).filter(Boolean);
+  if (sticky && 'IntersectionObserver' in window) {
+    var vis = {};
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { vis[e.target.id] = e.isIntersecting; });
+      var any = forms.some(function (n) { return vis[n.id]; });
+      sticky.classList.toggle('show', !any);
+      sticky.setAttribute('aria-hidden', any ? 'true' : 'false');
+    }, { threshold: 0.5 });
+    forms.forEach(function (n) { io.observe(n); });
+  }
+
+  var y = document.getElementById('year'); if (y) y.textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
